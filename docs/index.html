@@ -84,7 +84,7 @@
       .app {
         display: grid;
         grid-template-columns: 300px 1fr;
-        min-height: 100vh;
+        height: 100vh;
       }
 
       .sidebar {
@@ -93,8 +93,9 @@
         padding: 18px;
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
-        overflow: hidden;
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
 
       .title {
@@ -118,10 +119,7 @@
       .list {
         display: grid;
         gap: 8px;
-        overflow-y: auto;
-        padding-right: 4px;
-        flex: 1;
-        min-height: 0;
+        padding-right: 6px;
         align-content: start;
       }
 
@@ -370,7 +368,8 @@
           border-right: 0;
           border-bottom: 1px solid var(--border);
           max-height: 38vh;
-          overflow: hidden;
+          overflow-y: auto;
+          overflow-x: hidden;
         }
 
         .main {
