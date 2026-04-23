@@ -13,7 +13,7 @@
 - Interactive explorer: [https://novusgfx.github.io/retro-design-system/docs/](https://novusgfx.github.io/retro-design-system/docs/)
 - Source page: `docs/index.html`
 
-Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 26 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, Tron, Risograph print, and cassette futurism.
+Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 34 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, Tron, Risograph print, IBM 3270 mainframes, TempleOS, BBS ANSI art, the Matrix, and cassette futurism.
 
 Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
 
@@ -86,6 +86,14 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 24. Tron Vector
 25. VHS Tracking
 26. Risograph
+27. IBM 3270
+28. NetHack ASCII
+29. TempleOS
+30. BBS ANSI Art
+31. Midnight Commander
+32. Matrix Rain
+33. btop Meters
+34. Commodore 64 BASIC
 
 ## Quick Start
 
@@ -152,6 +160,14 @@ styles/
   24-tron-vector/
   25-vhs-tracking/
   26-risograph/
+  27-ibm-3270/
+  28-nethack-ascii/
+  29-templeos/
+  30-bbs-ansi/
+  31-midnight-commander/
+  32-matrix-rain/
+  33-btop-meters/
+  34-c64-basic/
 ```
 
 ## FAQ
