@@ -2,6 +2,18 @@
 
 A collection of **18 self-contained retro UI design systems**, each inspired by a specific era of computing. Every system lives in its own folder and ships as a single `index.html` file with tokens, components, and a showcase layout.
 
+## About
+
+Retro Design System is a ready-to-use visual playground for building nostalgic interfaces fast. It distills iconic UI eras into practical, reusable design tokens and component patterns so you can prototype, ship, or theme products without rebuilding styles from scratch.
+
+Built for modern workflows, this library is especially useful when paired with AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools): point an agent at a system, ask it to generate new UI in that visual language, and iterate quickly while keeping stylistic consistency.
+
+If you are building creative tools, game launchers, retro dashboards, experimental websites, synthwave projects, or throwback app skins, this repo gives you a strong design baseline plus copy-paste-ready references.
+
+## Tags / SEO Keywords
+
+`retro-ui`, `design-system`, `css`, `html`, `ui-kit`, `nostalgia`, `web-design`, `frontend`, `ai-agents`, `claude`, `codex`, `gemini`, `prompt-engineering`, `vibe-coding`, `windows-95`, `windows-xp`, `aqua`, `crt`, `8-bit`, `pixel-art`
+
 ## Screenshot Preview
 
 | Mac System 7 | Windows 95 |
