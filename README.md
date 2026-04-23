@@ -125,7 +125,7 @@ Use any of the system folders as a visual/style reference and ask your agent to 
 
 ### Suggested workflow
 
-1. Point the agent to a specific system folder (for example `11-8bit-arcade/index.html`).
+1. Point the agent to a specific system folder (for example `styles/11-8bit-arcade/index.html`).
 2. Ask it to extract tokens (colors, typography, spacing, shadows, borders) into reusable variables.
 3. Ask it to build your target component/page in that same visual language.
 4. Ask it to avoid modern defaults that break the retro look.
@@ -133,7 +133,7 @@ Use any of the system folders as a visual/style reference and ask your agent to 
 ### Prompt template
 
 ```text
-Use `<your-project-path>/11-8bit-arcade/index.html` as the style reference.
+Use `<your-project-path>/styles/11-8bit-arcade/index.html` as the style reference.
 Create [component/page] in this same visual language.
 
 Requirements:
@@ -145,20 +145,21 @@ Requirements:
 
 You can swap the reference path for any style in this repo:
 - Use your own local project directory path, not a fixed drive letter.
-- `09-crt-phosphor`
-- `10-dos-cga`
-- `11-8bit-arcade`
-- `15-cassette-futurism`
+- `styles/09-crt-phosphor`
+- `styles/10-dos-cga`
+- `styles/11-8bit-arcade`
+- `styles/15-cassette-futurism`
 
 ## Project Structure
 
-Each numbered folder contains one standalone system:
+Each numbered folder inside `styles/` contains one standalone system:
 
 ```text
-01-mac-system-7/
-02-windows-95/
-...
-18-ps1-tech/
+styles/
+  01-mac-system-7/
+  02-windows-95/
+  ...
+  18-ps1-tech/
 ```
 
 ## Credits

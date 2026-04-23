@@ -343,7 +343,7 @@
         <h1 class="title">RDS Explorer</h1>
         <p class="subtitle">
           Select a system to preview it individually from this repository.
-          Each preview loads from the root style folders.
+          Each preview loads from the organized styles folder.
         </p>
         <div id="system-list" class="list" aria-label="Design systems"></div>
       </aside>
@@ -375,24 +375,24 @@
 
     <script>
       const systems = [
-        { id: "01", name: "Mac System 7", era: "1991", vibe: "1-bit B and W, Chicago font, dithered grays", path: "../01-mac-system-7/index.html" },
-        { id: "02", name: "Windows 95", era: "1995", vibe: "3D bevel chrome, MS Sans Serif, teal desktop", path: "../02-windows-95/index.html" },
-        { id: "03", name: "Windows XP Luna", era: "2001", vibe: "Blue gradient shell, rounded controls, playful chrome", path: "../03-windows-xp-luna/index.html" },
-        { id: "04", name: "Mac OS X Aqua", era: "2001", vibe: "Glossy jelly buttons, pinstripes, soft depth", path: "../04-aqua-osx/index.html" },
-        { id: "05", name: "Amiga Workbench", era: "1985", vibe: "Topaz pixel tone, hard offsets, orange and blue", path: "../05-amiga-workbench/index.html" },
-        { id: "06", name: "NeXTSTEP", era: "1989", vibe: "Industrial charcoal, structured bevels, high contrast", path: "../06-nextstep/index.html" },
-        { id: "07", name: "BeOS", era: "2000", vibe: "Swiss chrome with angled yellow tab accents", path: "../07-beos/index.html" },
-        { id: "08", name: "Teletext", era: "1974", vibe: "Ceefax block graphics, 40x25 CRT mosaic", path: "../08-teletext/index.html" },
-        { id: "09", name: "CRT Phosphor", era: "1970s", vibe: "Green glow scanlines, prompt-first terminal aesthetic", path: "../09-crt-phosphor/index.html" },
-        { id: "10", name: "DOS CGA", era: "1981", vibe: "ANSI framing, command bars, 16-color nostalgia", path: "../10-dos-cga/index.html" },
-        { id: "11", name: "8-Bit Arcade", era: "1982", vibe: "Chunky pixels, neon palettes, high-energy HUDs", path: "../11-8bit-arcade/index.html" },
-        { id: "12", name: "Frutiger Aero", era: "2004", vibe: "Sky gradients, glass orbs, smooth optimistic gloss", path: "../12-frutiger-aero/index.html" },
-        { id: "13", name: "Winamp Skin", era: "1997", vibe: "Brushed paneling, green LCDs, compact controls", path: "../13-winamp-skin/index.html" },
-        { id: "14", name: "GeoCities Web 1.0", era: "1996", vibe: "Marquee chaos, starfields, loud personality", path: "../14-geocities-web10/index.html" },
-        { id: "15", name: "Cassette Futurism", era: "1979", vibe: "Amber phosphor, utilitarian sci-fi consoles", path: "../15-cassette-futurism/index.html" },
-        { id: "16", name: "Vaporwave", era: "1980s-1990s revival", vibe: "Pastel gradients, chrome statues, surreal nostalgia", path: "../16-vaporwave/index.html" },
-        { id: "17", name: "Memphis", era: "1980s", vibe: "Playful geometry, dotted textures, bold contrast", path: "../17-memphis/index.html" },
-        { id: "18", name: "PS1 Tech", era: "1994-2000", vibe: "Low-poly utility UI, utilitarian sci-fi overlays", path: "../18-ps1-tech/index.html" }
+        { id: "01", name: "Mac System 7", era: "1991", vibe: "1-bit B and W, Chicago font, dithered grays", path: "../styles/01-mac-system-7/index.html" },
+        { id: "02", name: "Windows 95", era: "1995", vibe: "3D bevel chrome, MS Sans Serif, teal desktop", path: "../styles/02-windows-95/index.html" },
+        { id: "03", name: "Windows XP Luna", era: "2001", vibe: "Blue gradient shell, rounded controls, playful chrome", path: "../styles/03-windows-xp-luna/index.html" },
+        { id: "04", name: "Mac OS X Aqua", era: "2001", vibe: "Glossy jelly buttons, pinstripes, soft depth", path: "../styles/04-aqua-osx/index.html" },
+        { id: "05", name: "Amiga Workbench", era: "1985", vibe: "Topaz pixel tone, hard offsets, orange and blue", path: "../styles/05-amiga-workbench/index.html" },
+        { id: "06", name: "NeXTSTEP", era: "1989", vibe: "Industrial charcoal, structured bevels, high contrast", path: "../styles/06-nextstep/index.html" },
+        { id: "07", name: "BeOS", era: "2000", vibe: "Swiss chrome with angled yellow tab accents", path: "../styles/07-beos/index.html" },
+        { id: "08", name: "Teletext", era: "1974", vibe: "Ceefax block graphics, 40x25 CRT mosaic", path: "../styles/08-teletext/index.html" },
+        { id: "09", name: "CRT Phosphor", era: "1970s", vibe: "Green glow scanlines, prompt-first terminal aesthetic", path: "../styles/09-crt-phosphor/index.html" },
+        { id: "10", name: "DOS CGA", era: "1981", vibe: "ANSI framing, command bars, 16-color nostalgia", path: "../styles/10-dos-cga/index.html" },
+        { id: "11", name: "8-Bit Arcade", era: "1982", vibe: "Chunky pixels, neon palettes, high-energy HUDs", path: "../styles/11-8bit-arcade/index.html" },
+        { id: "12", name: "Frutiger Aero", era: "2004", vibe: "Sky gradients, glass orbs, smooth optimistic gloss", path: "../styles/12-frutiger-aero/index.html" },
+        { id: "13", name: "Winamp Skin", era: "1997", vibe: "Brushed paneling, green LCDs, compact controls", path: "../styles/13-winamp-skin/index.html" },
+        { id: "14", name: "GeoCities Web 1.0", era: "1996", vibe: "Marquee chaos, starfields, loud personality", path: "../styles/14-geocities-web10/index.html" },
+        { id: "15", name: "Cassette Futurism", era: "1979", vibe: "Amber phosphor, utilitarian sci-fi consoles", path: "../styles/15-cassette-futurism/index.html" },
+        { id: "16", name: "Vaporwave", era: "1980s-1990s revival", vibe: "Pastel gradients, chrome statues, surreal nostalgia", path: "../styles/16-vaporwave/index.html" },
+        { id: "17", name: "Memphis", era: "1980s", vibe: "Playful geometry, dotted textures, bold contrast", path: "../styles/17-memphis/index.html" },
+        { id: "18", name: "PS1 Tech", era: "1994-2000", vibe: "Low-poly utility UI, utilitarian sci-fi overlays", path: "../styles/18-ps1-tech/index.html" }
       ];
 
       const listEl = document.getElementById("system-list");
