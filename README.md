@@ -1,8 +1,20 @@
 # Retro Design System
 
-A collection of **18 self-contained retro UI design systems**, each inspired by a specific era of computing. Every system lives in its own folder and ships as a single `index.html` file with tokens, components, and a showcase layout.
+[![GitHub stars](https://img.shields.io/github/stars/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/network/members)
+[![Last commit](https://img.shields.io/github/last-commit/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/commits/main)
+[![AI Agent Ready](https://img.shields.io/badge/AI%20Agent-Ready-00a86b?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system)
+[![License](https://img.shields.io/badge/license-Unspecified-lightgrey?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system)
+
+Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 18 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, and cassette futurism.
+
+Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
 
 ## About
+
+### Description
+
+An AI-agent-friendly collection of retro-inspired web UI systems with reusable tokens, component patterns, and visual references for rapid prototyping and production styling.
 
 Retro Design System is a ready-to-use visual playground for building nostalgic interfaces fast. It distills iconic UI eras into practical, reusable design tokens and component patterns so you can prototype, ship, or theme products without rebuilding styles from scratch.
 
@@ -13,6 +25,15 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 ## Tags / SEO Keywords
 
 `retro-ui`, `design-system`, `css`, `html`, `ui-kit`, `nostalgia`, `web-design`, `frontend`, `ai-agents`, `claude`, `codex`, `gemini`, `prompt-engineering`, `vibe-coding`, `windows-95`, `windows-xp`, `aqua`, `crt`, `8-bit`, `pixel-art`
+
+## Use Cases
+
+- **AI-generated frontend themes**: Use Claude/Codex/Gemini to generate pages and components that match a specific retro style.
+- **Retro dashboard UI kits**: Build admin panels, launchers, and control rooms with vintage operating system aesthetics.
+- **Game website design inspiration**: Create game landing pages, overlays, and HUD-inspired interfaces using 8-bit/CRT motifs.
+- **Prompt-to-UI workflows**: Feed a style reference to an AI agent and get reusable HTML/CSS output faster.
+- **Creative coding and portfolio projects**: Add nostalgia-forward visual identity to experimental web projects.
+- **Design token extraction for theming**: Lift palettes, borders, shadows, and typography rules into your own component systems.
 
 ## Screenshot Preview
 
