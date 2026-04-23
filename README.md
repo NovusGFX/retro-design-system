@@ -60,40 +60,40 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 
 ## Included Systems
 
-1. Mac System 7
-2. Windows 95
-3. Windows XP Luna
-4. Mac OS X Aqua
-5. Amiga Workbench
-6. NeXTSTEP
-7. BeOS
-8. Teletext
-9. CRT Phosphor
-10. DOS CGA
-11. 8-Bit Arcade
-12. Frutiger Aero
-13. Winamp Skin
-14. GeoCities Web 1.0
-15. Cassette Futurism
-16. Vaporwave
-17. Memphis
-18. PS1 Tech
-19. OS/2 Warp
-20. Mac OS 9 Platinum
-21. Web 2.0 Glossy
-22. Game Boy DMG
-23. Braun / Dieter Rams
-24. Tron Vector
-25. VHS Tracking
-26. Risograph
-27. IBM 3270
-28. NetHack ASCII
-29. TempleOS
-30. BBS ANSI Art
-31. Midnight Commander
-32. Matrix Rain
-33. btop Meters
-34. Commodore 64 BASIC
+1. [Mac System 7](https://github.com/NovusGFX/retro-design-system/blob/main/styles/01-mac-system-7/index.html)
+2. [Windows 95](https://github.com/NovusGFX/retro-design-system/blob/main/styles/02-windows-95/index.html)
+3. [Windows XP Luna](https://github.com/NovusGFX/retro-design-system/blob/main/styles/03-windows-xp-luna/index.html)
+4. [Mac OS X Aqua](https://github.com/NovusGFX/retro-design-system/blob/main/styles/04-aqua-osx/index.html)
+5. [Amiga Workbench](https://github.com/NovusGFX/retro-design-system/blob/main/styles/05-amiga-workbench/index.html)
+6. [NeXTSTEP](https://github.com/NovusGFX/retro-design-system/blob/main/styles/06-nextstep/index.html)
+7. [BeOS](https://github.com/NovusGFX/retro-design-system/blob/main/styles/07-beos/index.html)
+8. [Teletext](https://github.com/NovusGFX/retro-design-system/blob/main/styles/08-teletext/index.html)
+9. [CRT Phosphor](https://github.com/NovusGFX/retro-design-system/blob/main/styles/09-crt-phosphor/index.html)
+10. [DOS CGA](https://github.com/NovusGFX/retro-design-system/blob/main/styles/10-dos-cga/index.html)
+11. [8-Bit Arcade](https://github.com/NovusGFX/retro-design-system/blob/main/styles/11-8bit-arcade/index.html)
+12. [Frutiger Aero](https://github.com/NovusGFX/retro-design-system/blob/main/styles/12-frutiger-aero/index.html)
+13. [Winamp Skin](https://github.com/NovusGFX/retro-design-system/blob/main/styles/13-winamp-skin/index.html)
+14. [GeoCities Web 1.0](https://github.com/NovusGFX/retro-design-system/blob/main/styles/14-geocities-web10/index.html)
+15. [Cassette Futurism](https://github.com/NovusGFX/retro-design-system/blob/main/styles/15-cassette-futurism/index.html)
+16. [Vaporwave](https://github.com/NovusGFX/retro-design-system/blob/main/styles/16-vaporwave/index.html)
+17. [Memphis](https://github.com/NovusGFX/retro-design-system/blob/main/styles/17-memphis/index.html)
+18. [PS1 Tech](https://github.com/NovusGFX/retro-design-system/blob/main/styles/18-ps1-tech/index.html)
+19. [OS/2 Warp](https://github.com/NovusGFX/retro-design-system/blob/main/styles/19-os2-warp/index.html)
+20. [Mac OS 9 Platinum](https://github.com/NovusGFX/retro-design-system/blob/main/styles/20-macos9-platinum/index.html)
+21. [Web 2.0 Glossy](https://github.com/NovusGFX/retro-design-system/blob/main/styles/21-web20-glossy/index.html)
+22. [Game Boy DMG](https://github.com/NovusGFX/retro-design-system/blob/main/styles/22-gameboy-dmg/index.html)
+23. [Braun / Dieter Rams](https://github.com/NovusGFX/retro-design-system/blob/main/styles/23-braun-rams/index.html)
+24. [Tron Vector](https://github.com/NovusGFX/retro-design-system/blob/main/styles/24-tron-vector/index.html)
+25. [VHS Tracking](https://github.com/NovusGFX/retro-design-system/blob/main/styles/25-vhs-tracking/index.html)
+26. [Risograph](https://github.com/NovusGFX/retro-design-system/blob/main/styles/26-risograph/index.html)
+27. [IBM 3270](https://github.com/NovusGFX/retro-design-system/blob/main/styles/27-ibm-3270/index.html)
+28. [NetHack ASCII](https://github.com/NovusGFX/retro-design-system/blob/main/styles/28-nethack-ascii/index.html)
+29. [TempleOS](https://github.com/NovusGFX/retro-design-system/blob/main/styles/29-templeos/index.html)
+30. [BBS ANSI Art](https://github.com/NovusGFX/retro-design-system/blob/main/styles/30-bbs-ansi/index.html)
+31. [Midnight Commander](https://github.com/NovusGFX/retro-design-system/blob/main/styles/31-midnight-commander/index.html)
+32. [Matrix Rain](https://github.com/NovusGFX/retro-design-system/blob/main/styles/32-matrix-rain/index.html)
+33. [btop Meters](https://github.com/NovusGFX/retro-design-system/blob/main/styles/33-btop-meters/index.html)
+34. [Commodore 64 BASIC](https://github.com/NovusGFX/retro-design-system/blob/main/styles/34-c64-basic/index.html)
 
 ## Quick Start
 
