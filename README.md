@@ -133,7 +133,7 @@ Use any of the system folders as a visual/style reference and ask your agent to 
 ### Prompt template
 
 ```text
-Use `D:\Retro Design System\11-8bit-arcade\index.html` as the style reference.
+Use `<your-project-path>/11-8bit-arcade/index.html` as the style reference.
 Create [component/page] in this same visual language.
 
 Requirements:
@@ -144,6 +144,7 @@ Requirements:
 ```
 
 You can swap the reference path for any style in this repo:
+- Use your own local project directory path, not a fixed drive letter.
 - `09-crt-phosphor`
 - `10-dos-cga`
 - `11-8bit-arcade`
