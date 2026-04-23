@@ -1,5 +1,7 @@
 # Retro Design System
 
+![Retro Design Systems social poster](./assets/social-poster.png)
+
 [![GitHub stars](https://img.shields.io/github/stars/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/network/members)
 [![Last commit](https://img.shields.io/github/last-commit/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/commits/main)
