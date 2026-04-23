@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RDS Explorer</title>
+    <style>
+      :root {
+        --bg: #101722;
+        --panel: #182233;
+        --panel-2: #21304a;
+        --text: #edf2ff;
+        --muted: #9eb0d1;
+        --accent: #6ee7c8;
+        --accent-2: #7aa8ff;
+        --border: #2f4261;
+        --danger: #ff7b88;
+        --body-grad-1: #1f3558;
+        --body-grad-2: #1c5f63;
+        --body-grad-3: #0d1420;
+        --body-grad-4: #0e1d2f;
+        --body-grad-5: #11192a;
+        --sidebar-grad-1: #152034;
+        --sidebar-grad-2: #101a2a;
+        --topbar-bg: rgba(18, 30, 47, 0.78);
+        --meta-bg: rgba(14, 24, 39, 0.85);
+        --btn-bg: #1d2940;
+        --btn-primary-1: #1d6457;
+        --btn-primary-2: #174a41;
+        --preview-bg: #0f1725;
+        --radius-btn: 10px;
+        --radius-panel: 12px;
+        --radius-preview: 14px;
+        --radius-pill: 999px;
+        --btn-padding: 8px 12px;
+        --sys-padding: 9px 10px;
+        --btn-shadow: none;
+        --sys-shadow: none;
+        --btn-hover-transform: translateY(-1px);
+        --sys-hover-transform: translateX(2px);
+        --btn-text-transform: none;
+        --btn-letter-spacing: normal;
+        --btn-font-weight: 600;
+        --btn-border-style: solid;
+        --panel-border-style: solid;
+        --btn-border-width: 1px;
+        --sys-border-width: 1px;
+        --btn-text-shadow: none;
+        --sys-text-shadow: none;
+        --btn-primary-bg: linear-gradient(180deg, var(--btn-primary-1), var(--btn-primary-2));
+        --btn-primary-color: var(--text);
+        --btn-primary-shadow: var(--btn-shadow);
+        --btn-primary-hover-transform: var(--btn-hover-transform);
+        --btn-hover-bg: var(--panel-2);
+        --sys-hover-bg: var(--panel-2);
+        --chrome-anim: none;
+        --chrome-anim-duration: 0ms;
+        --chrome-anim-timing: linear;
+        --chrome-anim-iter: 1;
+        --hover-duration: 120ms;
+        --hover-easing: ease;
+        --overlay-opacity: 0;
+        --overlay-blend: normal;
+        --ui-font: "Trebuchet MS", "Segoe UI", sans-serif;
+        --ui-heading-font: "Trebuchet MS", "Segoe UI", sans-serif;
+        --ui-control-font: "Trebuchet MS", "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family: var(--ui-font);
+        background:
+          radial-gradient(circle at 15% 15%, var(--body-grad-1) 0%, transparent 30%),
+          radial-gradient(circle at 85% 20%, var(--body-grad-2) 0%, transparent 32%),
+          linear-gradient(170deg, var(--body-grad-3) 0%, var(--body-grad-4) 45%, var(--body-grad-5) 100%);
+      }
+
+      .app {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        border-right: 1px solid var(--border);
+        background: linear-gradient(180deg, var(--sidebar-grad-1) 0%, var(--sidebar-grad-2) 100%);
+        padding: 18px;
+      }
+
+      .title {
+        margin: 0;
+        letter-spacing: 0.04em;
+        font-size: 1.2rem;
+        font-family: var(--ui-heading-font);
+      }
+
+      .subtitle {
+        margin: 8px 0 18px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      code {
+        font-family: inherit;
+      }
+
+      .list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .sys-btn {
+        border: var(--sys-border-width) var(--btn-border-style) var(--border);
+        background: var(--panel);
+        color: var(--text);
+        text-align: left;
+        border-radius: var(--radius-btn);
+        padding: var(--sys-padding);
+        cursor: pointer;
+        box-shadow: var(--sys-shadow);
+        text-shadow: var(--sys-text-shadow);
+        font-family: var(--ui-control-font);
+        transition: transform var(--hover-duration) var(--hover-easing), border-color var(--hover-duration) var(--hover-easing), background var(--hover-duration) var(--hover-easing);
+      }
+
+      .sys-btn:hover {
+        transform: var(--sys-hover-transform);
+        border-color: var(--accent-2);
+        background: var(--sys-hover-bg);
+      }
+
+      .sys-btn.active {
+        border-color: var(--accent);
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent), transparent 65%);
+      }
+
+      .sys-name {
+        font-weight: 700;
+        display: block;
+        font-family: var(--ui-heading-font);
+      }
+
+      .sys-era {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .main {
+        padding: 18px;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        gap: 12px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        background: var(--topbar-bg);
+        border: 1px var(--panel-border-style) var(--border);
+        border-radius: var(--radius-panel);
+        padding: 12px;
+        backdrop-filter: blur(5px);
+      }
+
+      .topbar h2 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-family: var(--ui-heading-font);
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: var(--radius-pill);
+        border: 1px var(--panel-border-style) var(--border);
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-family: var(--ui-control-font);
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .btn {
+        border: var(--btn-border-width) var(--btn-border-style) var(--border);
+        border-radius: var(--radius-btn);
+        padding: var(--btn-padding);
+        color: var(--text);
+        background: var(--btn-bg);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: var(--btn-font-weight);
+        text-transform: var(--btn-text-transform);
+        letter-spacing: var(--btn-letter-spacing);
+        box-shadow: var(--btn-shadow);
+        text-shadow: var(--btn-text-shadow);
+        font-family: var(--ui-control-font);
+        transition: transform var(--hover-duration) var(--hover-easing), background var(--hover-duration) var(--hover-easing), border-color var(--hover-duration) var(--hover-easing);
+      }
+
+      .btn:hover {
+        transform: var(--btn-hover-transform);
+        background: var(--btn-hover-bg);
+      }
+
+      .btn.primary {
+        border-color: color-mix(in srgb, var(--accent), #0f0f0f 35%);
+        background: var(--btn-primary-bg);
+        color: var(--btn-primary-color);
+        box-shadow: var(--btn-primary-shadow);
+      }
+
+      .btn.primary:hover {
+        transform: var(--btn-primary-hover-transform);
+      }
+
+      .meta {
+        background: var(--meta-bg);
+        border: 1px var(--panel-border-style) var(--border);
+        border-radius: var(--radius-panel);
+        padding: 10px 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-family: var(--ui-font);
+      }
+
+      .topbar,
+      .meta,
+      .preview-shell {
+        animation: var(--chrome-anim) var(--chrome-anim-duration) var(--chrome-anim-timing) var(--chrome-anim-iter);
+        transform-origin: center;
+      }
+
+      .preview-shell {
+        min-height: 62vh;
+        border: 1px var(--panel-border-style) var(--border);
+        border-radius: var(--radius-preview);
+        overflow: hidden;
+        background: var(--preview-bg);
+        position: relative;
+      }
+
+      .preview-shell::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: var(--overlay-opacity);
+        mix-blend-mode: var(--overlay-blend);
+        background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 3px);
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: var(--preview-bg);
+      }
+
+      .empty {
+        position: absolute;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--muted);
+        padding: 16px;
+        background: linear-gradient(180deg, rgba(19, 30, 46, 0.95), rgba(14, 20, 31, 0.95));
+      }
+
+      .empty.show {
+        display: flex;
+      }
+
+      .hint {
+        color: var(--danger);
+        font-size: 0.83rem;
+      }
+
+      @keyframes rds-flicker {
+        0%,
+        100% { opacity: 1; filter: brightness(1); }
+        49% { opacity: 0.98; filter: brightness(1.03); }
+        50% { opacity: 0.95; filter: brightness(0.95); }
+        51% { opacity: 0.99; filter: brightness(1.02); }
+      }
+
+      @keyframes rds-pulse {
+        0%,
+        100% { opacity: 1; }
+        50% { opacity: 0.94; }
+      }
+
+      @keyframes rds-drift {
+        0%,
+        100% { transform: translateY(0px); }
+        50% { transform: translateY(-1px); }
+      }
+
+      @keyframes rds-step {
+        0% { opacity: 1; }
+        25% { opacity: 0.93; }
+        50% { opacity: 1; }
+        75% { opacity: 0.9; }
+        100% { opacity: 1; }
+      }
+
+      @media (max-width: 960px) {
+        .app {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          border-right: 0;
+          border-bottom: 1px solid var(--border);
+          max-height: 38vh;
+          overflow: auto;
+        }
+
+        .main {
+          grid-template-rows: auto auto minmax(58vh, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <h1 class="title">RDS Explorer</h1>
+        <p class="subtitle">
+          Select a system to preview it individually from this repository.
+          Each preview loads from the root style folders.
+        </p>
+        <div id="system-list" class="list" aria-label="Design systems"></div>
+      </aside>
+
+      <main class="main">
+        <section class="topbar">
+          <div>
+            <h2 id="selected-name">Loading...</h2>
+            <span id="selected-era" class="pill">Era</span>
+          </div>
+          <div class="actions">
+            <a id="open-tab" class="btn primary" href="#" target="_blank" rel="noopener noreferrer">Open selected style demo</a>
+          </div>
+        </section>
+
+        <section id="selected-vibe" class="meta"></section>
+
+        <section class="preview-shell">
+          <iframe id="preview-frame" title="Design system preview"></iframe>
+          <div id="empty-state" class="empty">
+            <div>
+              <p>Preview blocked or file not found.</p>
+              <p class="hint">Use the "Open full page" button if your browser blocks local iframe content.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const systems = [
+        { id: "01", name: "Mac System 7", era: "1991", vibe: "1-bit B and W, Chicago font, dithered grays", path: "../01-mac-system-7/index.html" },
+        { id: "02", name: "Windows 95", era: "1995", vibe: "3D bevel chrome, MS Sans Serif, teal desktop", path: "../02-windows-95/index.html" },
+        { id: "03", name: "Windows XP Luna", era: "2001", vibe: "Blue gradient shell, rounded controls, playful chrome", path: "../03-windows-xp-luna/index.html" },
+        { id: "04", name: "Mac OS X Aqua", era: "2001", vibe: "Glossy jelly buttons, pinstripes, soft depth", path: "../04-aqua-osx/index.html" },
+        { id: "05", name: "Amiga Workbench", era: "1985", vibe: "Topaz pixel tone, hard offsets, orange and blue", path: "../05-amiga-workbench/index.html" },
+        { id: "06", name: "NeXTSTEP", era: "1989", vibe: "Industrial charcoal, structured bevels, high contrast", path: "../06-nextstep/index.html" },
+        { id: "07", name: "BeOS", era: "2000", vibe: "Swiss chrome with angled yellow tab accents", path: "../07-beos/index.html" },
+        { id: "08", name: "Teletext", era: "1974", vibe: "Ceefax block graphics, 40x25 CRT mosaic", path: "../08-teletext/index.html" },
+        { id: "09", name: "CRT Phosphor", era: "1970s", vibe: "Green glow scanlines, prompt-first terminal aesthetic", path: "../09-crt-phosphor/index.html" },
+        { id: "10", name: "DOS CGA", era: "1981", vibe: "ANSI framing, command bars, 16-color nostalgia", path: "../10-dos-cga/index.html" },
+        { id: "11", name: "8-Bit Arcade", era: "1982", vibe: "Chunky pixels, neon palettes, high-energy HUDs", path: "../11-8bit-arcade/index.html" },
+        { id: "12", name: "Frutiger Aero", era: "2004", vibe: "Sky gradients, glass orbs, smooth optimistic gloss", path: "../12-frutiger-aero/index.html" },
+        { id: "13", name: "Winamp Skin", era: "1997", vibe: "Brushed paneling, green LCDs, compact controls", path: "../13-winamp-skin/index.html" },
+        { id: "14", name: "GeoCities Web 1.0", era: "1996", vibe: "Marquee chaos, starfields, loud personality", path: "../14-geocities-web10/index.html" },
+        { id: "15", name: "Cassette Futurism", era: "1979", vibe: "Amber phosphor, utilitarian sci-fi consoles", path: "../15-cassette-futurism/index.html" },
+        { id: "16", name: "Vaporwave", era: "1980s-1990s revival", vibe: "Pastel gradients, chrome statues, surreal nostalgia", path: "../16-vaporwave/index.html" },
+        { id: "17", name: "Memphis", era: "1980s", vibe: "Playful geometry, dotted textures, bold contrast", path: "../17-memphis/index.html" },
+        { id: "18", name: "PS1 Tech", era: "1994-2000", vibe: "Low-poly utility UI, utilitarian sci-fi overlays", path: "../18-ps1-tech/index.html" }
+      ];
+
+      const listEl = document.getElementById("system-list");
+      const frameEl = document.getElementById("preview-frame");
+      const emptyEl = document.getElementById("empty-state");
+      const nameEl = document.getElementById("selected-name");
+      const eraEl = document.getElementById("selected-era");
+      const vibeEl = document.getElementById("selected-vibe");
+      const openTabEl = document.getElementById("open-tab");
+
+      function createTheme(config) {
+        return {
+          font: config.font,
+          headingFont: config.headingFont || config.font,
+          controlFont: config.controlFont || config.font,
+          vars: {
+            "--bg": config.bg,
+            "--panel": config.panel,
+            "--panel-2": config.panel2,
+            "--text": config.text,
+            "--muted": config.muted,
+            "--accent": config.accent,
+            "--accent-2": config.accent2,
+            "--border": config.border,
+            "--body-grad-1": config.g1,
+            "--body-grad-2": config.g2,
+            "--body-grad-3": config.g3,
+            "--body-grad-4": config.g4,
+            "--body-grad-5": config.g5,
+            "--sidebar-grad-1": config.s1,
+            "--sidebar-grad-2": config.s2,
+            "--topbar-bg": config.topbar,
+            "--meta-bg": config.meta,
+            "--btn-bg": config.btn,
+            "--btn-primary-1": config.btn1,
+            "--btn-primary-2": config.btn2,
+            "--preview-bg": config.preview
+          }
+        };
+      }
+
+      const themeMap = {
+        "01": createTheme({ font: '"Geneva", "Helvetica", sans-serif', headingFont: '"Chicago", "Charcoal", "Geneva", Tahoma, sans-serif', controlFont: '"Chicago", "Charcoal", "Geneva", Tahoma, sans-serif', bg: "#202226", panel: "#e7e7e7", panel2: "#f5f5f5", text: "#1a1a1a", muted: "#5f5f5f", accent: "#3a3a3a", accent2: "#7c7c7c", border: "#8e8e8e", g1: "#a4a4a4", g2: "#d4d4d4", g3: "#a0a0a0", g4: "#7a7a7a", g5: "#5c5c5c", s1: "#f4f4f4", s2: "#d8d8d8", topbar: "rgba(240, 240, 240, 0.95)", meta: "rgba(230, 230, 230, 0.95)", btn: "#f0f0f0", btn1: "#9d9d9d", btn2: "#6f6f6f", preview: "#bdbdbd" }),
+        "02": createTheme({ font: '"MS Sans Serif", "Tahoma", sans-serif', bg: "#0a8a8a", panel: "#c0c0c0", panel2: "#d9d9d9", text: "#101010", muted: "#3b3b3b", accent: "#102a8a", accent2: "#0f4cb7", border: "#6b6b6b", g1: "#2ababa", g2: "#0f9f9f", g3: "#128e8e", g4: "#0f8484", g5: "#0a6e6e", s1: "#d4d4d4", s2: "#bcbcbc", topbar: "rgba(205, 205, 205, 0.94)", meta: "rgba(218, 218, 218, 0.96)", btn: "#d4d4d4", btn1: "#1a3eb0", btn2: "#0d2f91", preview: "#0f7575" }),
+        "03": createTheme({ font: '"Trebuchet MS", "Tahoma", "Franklin Gothic Medium", sans-serif', bg: "#245da8", panel: "#dce9ff", panel2: "#f0f6ff", text: "#14203d", muted: "#425983", accent: "#2b67d8", accent2: "#2ca6ff", border: "#6c96d6", g1: "#69a5ff", g2: "#2e7eea", g3: "#1d4a8e", g4: "#1d5db0", g5: "#20406f", s1: "#f1f6ff", s2: "#cfdef9", topbar: "rgba(234, 243, 255, 0.94)", meta: "rgba(226, 237, 255, 0.94)", btn: "#dde8ff", btn1: "#3d8cff", btn2: "#2b5fc9", preview: "#184281" }),
+        "04": createTheme({ font: '"Lucida Grande", "Helvetica Neue", sans-serif', bg: "#8ea8c7", panel: "#f5f8fc", panel2: "#ffffff", text: "#1f2a3f", muted: "#52627b", accent: "#2a71c8", accent2: "#53a8ff", border: "#9eb3ce", g1: "#c8d6eb", g2: "#9eb6d8", g3: "#6c87ae", g4: "#8ea8c7", g5: "#7084a0", s1: "#f8fbff", s2: "#dde6f3", topbar: "rgba(246, 250, 255, 0.93)", meta: "rgba(234, 242, 252, 0.94)", btn: "#edf3fc", btn1: "#5bb2ff", btn2: "#2f74cb", preview: "#6e89aa" }),
+        "05": createTheme({ font: '"Topaz", "Courier New", "Consolas", monospace', bg: "#0f4f7d", panel: "#d5d9df", panel2: "#e8ebef", text: "#132232", muted: "#526579", accent: "#ef7f2c", accent2: "#ffaa4f", border: "#748698", g1: "#2d78ad", g2: "#134f79", g3: "#0a2c4b", g4: "#0f3f64", g5: "#0a2b43", s1: "#e6e8ec", s2: "#ccd2d9", topbar: "rgba(226, 231, 237, 0.93)", meta: "rgba(212, 218, 226, 0.94)", btn: "#d9dde2", btn1: "#ff983d", btn2: "#c35f17", preview: "#0f3c5c" }),
+        "06": createTheme({ font: '"Helvetica Neue", "Helvetica", "Liberation Sans", sans-serif', bg: "#2a2d34", panel: "#d7d9dd", panel2: "#e7e8eb", text: "#121317", muted: "#4e5058", accent: "#565e6b", accent2: "#8f97a4", border: "#676d79", g1: "#565a65", g2: "#3e424b", g3: "#26292f", g4: "#1e2025", g5: "#17191d", s1: "#d4d6da", s2: "#bec1c8", topbar: "rgba(224, 226, 230, 0.92)", meta: "rgba(208, 210, 216, 0.92)", btn: "#d1d4d9", btn1: "#7f8794", btn2: "#5b616c", preview: "#1f2228" }),
+        "07": createTheme({ font: '"Swiss 721", "Helvetica", "Swis721 BT", sans-serif', bg: "#4f9fb0", panel: "#eef1f4", panel2: "#ffffff", text: "#1f2930", muted: "#5f717d", accent: "#f2c84b", accent2: "#ffe78b", border: "#94aab8", g1: "#8dc2cc", g2: "#5ca5b4", g3: "#3c7f8b", g4: "#355e69", g5: "#2a4a53", s1: "#f8fafc", s2: "#dee6ea", topbar: "rgba(242, 246, 248, 0.92)", meta: "rgba(231, 237, 241, 0.92)", btn: "#e3eaee", btn1: "#f4d95d", btn2: "#cfaa30", preview: "#345f67" }),
+        "08": createTheme({ font: '"VT323", "Courier New", "Consolas", monospace', bg: "#000080", panel: "#0000aa", panel2: "#0000c8", text: "#ffff00", muted: "#00ffff", accent: "#ff00ff", accent2: "#ffffff", border: "#ffffff", g1: "#000080", g2: "#000080", g3: "#000080", g4: "#000080", g5: "#000080", s1: "#0000aa", s2: "#00008f", topbar: "rgba(0, 0, 170, 0.96)", meta: "rgba(0, 0, 160, 0.96)", btn: "#0000aa", btn1: "#0000aa", btn2: "#0000aa", preview: "#00006a" }),
+        "09": createTheme({ font: '"VT323", "IBM Plex Mono", "Courier New", monospace', bg: "#00110a", panel: "#03190f", panel2: "#062117", text: "#8cff9d", muted: "#4abf63", accent: "#6bff78", accent2: "#a2ffac", border: "#1f6f3a", g1: "#003317", g2: "#001f11", g3: "#020b05", g4: "#021108", g5: "#02160c", s1: "#02150c", s2: "#010c07", topbar: "rgba(3, 30, 14, 0.82)", meta: "rgba(2, 23, 10, 0.88)", btn: "#062919", btn1: "#0b6d35", btn2: "#084625", preview: "#02140b" }),
+        "10": createTheme({ font: '"Perfect DOS VGA 437", "IBM Plex Mono", "Courier New", monospace', bg: "#0a0f39", panel: "#111a5b", panel2: "#162576", text: "#d8deff", muted: "#9ea8f8", accent: "#00e1ff", accent2: "#5fff79", border: "#3f4cb0", g1: "#1d2f95", g2: "#251f85", g3: "#090f3a", g4: "#0d185f", g5: "#09124f", s1: "#17257e", s2: "#111a5b", topbar: "rgba(20, 32, 104, 0.84)", meta: "rgba(17, 27, 86, 0.9)", btn: "#162476", btn1: "#138ee8", btn2: "#1163bf", preview: "#0a1242" }),
+        "11": createTheme({ font: '"Press Start 2P", "VT323", monospace', bg: "#120026", panel: "#1d0c3f", panel2: "#2a1455", text: "#fff1ff", muted: "#d8bdf1", accent: "#ff4de3", accent2: "#29d8ff", border: "#6a33b3", g1: "#480c8f", g2: "#102b8a", g3: "#140029", g4: "#240845", g5: "#0f0030", s1: "#2f1260", s2: "#180537", topbar: "rgba(39, 13, 86, 0.86)", meta: "rgba(29, 8, 62, 0.9)", btn: "#321269", btn1: "#ff41b8", btn2: "#a7197f", preview: "#15062f" }),
+        "12": createTheme({ font: '"Frutiger", "Segoe UI", "Myriad Pro", "Helvetica Neue", sans-serif', bg: "#5ca3d8", panel: "#ecf8ff", panel2: "#ffffff", text: "#153447", muted: "#4b7f95", accent: "#28a8c8", accent2: "#7be7ff", border: "#9fcae0", g1: "#9ed8ff", g2: "#76c2ef", g3: "#4b9bd2", g4: "#3f82b0", g5: "#316583", s1: "#f2fbff", s2: "#d9eff9", topbar: "rgba(236, 250, 255, 0.92)", meta: "rgba(223, 244, 252, 0.94)", btn: "#dff4fb", btn1: "#42c3dc", btn2: "#1f8fae", preview: "#3a7596" }),
+        "13": createTheme({ font: '"Helvetica Neue", Arial, sans-serif', bg: "#2f3443", panel: "#505767", panel2: "#616a7c", text: "#e4f6c0", muted: "#b9c5a4", accent: "#8adf2e", accent2: "#d4ff8b", border: "#80889b", g1: "#677087", g2: "#4b5263", g3: "#2a2f3b", g4: "#232834", g5: "#1b1f29", s1: "#5f6676", s2: "#4d5361", topbar: "rgba(86, 93, 108, 0.9)", meta: "rgba(73, 79, 94, 0.92)", btn: "#5f6676", btn1: "#7fca31", btn2: "#4f8e19", preview: "#252a34" }),
+        "14": createTheme({ font: '"Comic Sans MS", "Times New Roman", serif', bg: "#080025", panel: "#1a1144", panel2: "#261a5a", text: "#fff47d", muted: "#ffb7f8", accent: "#00f5ff", accent2: "#ff4ec6", border: "#7f63ff", g1: "#2e1a87", g2: "#071f68", g3: "#080025", g4: "#15094a", g5: "#0a0323", s1: "#2f1d7a", s2: "#170c45", topbar: "rgba(37, 23, 95, 0.88)", meta: "rgba(28, 16, 75, 0.9)", btn: "#2c1a72", btn1: "#ff4ec6", btn2: "#9a1f7c", preview: "#100633" }),
+        "15": createTheme({ font: '"Orbitron", "Share Tech Mono", "Courier New", monospace', bg: "#2a1b10", panel: "#3c2a1b", panel2: "#4b3421", text: "#ffe5bc", muted: "#d0b289", accent: "#ffb14a", accent2: "#ffd082", border: "#7a5835", g1: "#5f3b1f", g2: "#7b4c22", g3: "#261608", g4: "#3b220f", g5: "#211208", s1: "#4a301b", s2: "#311f12", topbar: "rgba(55, 34, 18, 0.84)", meta: "rgba(60, 38, 21, 0.9)", btn: "#5a3920", btn1: "#b76b1f", btn2: "#8a4d12", preview: "#211206" }),
+        "16": createTheme({ font: '"Times New Roman", "Hiragino Mincho Pro", serif', headingFont: '"MS PGothic", "Noto Serif JP", serif', controlFont: '"MS PGothic", "Noto Serif JP", serif', bg: "#2a0f4e", panel: "#ffe5fb", panel2: "#ffd1f1", text: "#411d63", muted: "#8255a6", accent: "#45d9ff", accent2: "#ff74df", border: "#b88ce0", g1: "#ff8ed8", g2: "#86d2ff", g3: "#4b1976", g4: "#32125d", g5: "#1b093a", s1: "#ffe0f7", s2: "#f0c7ea", topbar: "rgba(255, 226, 248, 0.9)", meta: "rgba(249, 212, 239, 0.92)", btn: "#ffd3f2", btn1: "#47d1ff", btn2: "#2287d1", preview: "#311159" }),
+        "17": createTheme({ font: '"Helvetica Neue", Helvetica, Impact, sans-serif', bg: "#fff3c7", panel: "#ffffff", panel2: "#fff8e3", text: "#1d1d1d", muted: "#645f4f", accent: "#ff4e36", accent2: "#2e6dff", border: "#d4c7a0", g1: "#ffe081", g2: "#ffb4b0", g3: "#ffeec0", g4: "#ffe3a8", g5: "#ffd57d", s1: "#ffffff", s2: "#fef0cb", topbar: "rgba(255, 249, 231, 0.93)", meta: "rgba(255, 244, 211, 0.94)", btn: "#fff2cf", btn1: "#ff734e", btn2: "#db4429", preview: "#ffe6ad" }),
+        "18": createTheme({ font: '"Eurostile", "Rajdhani", "Share Tech Mono", sans-serif', headingFont: '"Orbitron", "Eurostile Extended", sans-serif', controlFont: '"Eurostile", "Rajdhani", "Share Tech Mono", sans-serif', bg: "#1f2735", panel: "#d7dde8", panel2: "#e7ebf2", text: "#1d2432", muted: "#4d5666", accent: "#4db0ff", accent2: "#78f0ff", border: "#7f8da3", g1: "#54657f", g2: "#3b475c", g3: "#1a202c", g4: "#121823", g5: "#0d121b", s1: "#dce2ec", s2: "#c8cfdb", topbar: "rgba(223, 228, 236, 0.92)", meta: "rgba(210, 217, 229, 0.93)", btn: "#d6dce7", btn1: "#5cb7ff", btn2: "#2c78bc", preview: "#151d2b" })
+      };
+
+      const uiProfileMap = {
+        "01": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "2px", radiusPanel: "2px", radiusPreview: "2px", radiusPill: "2px", btnPadding: "6px 10px", sysPadding: "7px 9px", btnShadow: "2px 2px 0 rgba(0,0,0,0.2)", sysShadow: "1px 1px 0 rgba(0,0,0,0.15)", btnHover: "translate(1px, 1px)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.04em", btnWeight: "700" },
+        "02": { btnBorder: "outset", panelBorder: "solid", radiusBtn: "2px", radiusPanel: "2px", radiusPreview: "2px", radiusPill: "2px", btnPadding: "6px 10px", sysPadding: "7px 9px", btnShadow: "inset -1px -1px 0 #7f7f7f, inset 1px 1px 0 #ffffff", sysShadow: "inset -1px -1px 0 #7f7f7f, inset 1px 1px 0 #ffffff", btnHover: "translateY(0)", sysHover: "translateX(0)", btnCase: "none", btnLetter: "normal", btnWeight: "600" },
+        "03": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "12px", radiusPanel: "14px", radiusPreview: "14px", radiusPill: "999px", btnPadding: "8px 13px", sysPadding: "9px 11px", btnShadow: "inset 0 1px 0 rgba(255,255,255,0.85), 0 2px 4px rgba(0,0,0,0.2)", sysShadow: "0 1px 2px rgba(0,0,0,0.16)", btnHover: "translateY(-1px)", sysHover: "translateX(2px)", btnCase: "none", btnLetter: "0.01em", btnWeight: "700" },
+        "04": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "999px", radiusPanel: "14px", radiusPreview: "16px", radiusPill: "999px", btnPadding: "8px 14px", sysPadding: "9px 11px", btnShadow: "inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 3px rgba(0,0,0,0.2)", sysShadow: "0 1px 2px rgba(0,0,0,0.15)", btnHover: "translateY(-1px)", sysHover: "translateX(2px)", btnCase: "none", btnLetter: "0.01em", btnWeight: "700" },
+        "05": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "1px", radiusPanel: "2px", radiusPreview: "2px", radiusPill: "2px", btnPadding: "7px 11px", sysPadding: "8px 10px", btnShadow: "3px 3px 0 rgba(0,0,0,0.35)", sysShadow: "2px 2px 0 rgba(0,0,0,0.25)", btnHover: "translate(1px, 1px)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.03em", btnWeight: "700" },
+        "06": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "2px", radiusPanel: "4px", radiusPreview: "4px", radiusPill: "4px", btnPadding: "7px 11px", sysPadding: "8px 10px", btnShadow: "none", sysShadow: "none", btnHover: "translateY(-1px)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.05em", btnWeight: "700" },
+        "07": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "7px", radiusPanel: "10px", radiusPreview: "10px", radiusPill: "999px", btnPadding: "8px 12px", sysPadding: "9px 11px", btnShadow: "0 2px 4px rgba(0,0,0,0.18)", sysShadow: "0 1px 2px rgba(0,0,0,0.14)", btnHover: "translateY(-1px)", sysHover: "translateX(2px)", btnCase: "none", btnLetter: "normal", btnWeight: "700" },
+        "08": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "0px", radiusPanel: "0px", radiusPreview: "0px", radiusPill: "0px", btnPadding: "6px 10px", sysPadding: "7px 9px", btnShadow: "none", sysShadow: "none", btnHover: "translateY(0)", sysHover: "translateX(0)", btnCase: "uppercase", btnLetter: "0.08em", btnWeight: "700" },
+        "09": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "0px", radiusPanel: "0px", radiusPreview: "0px", radiusPill: "0px", btnPadding: "7px 11px", sysPadding: "8px 10px", btnShadow: "0 0 10px rgba(123,255,150,0.25)", sysShadow: "0 0 8px rgba(123,255,150,0.2)", btnHover: "translateY(0)", sysHover: "translateX(0)", btnCase: "uppercase", btnLetter: "0.1em", btnWeight: "700" },
+        "10": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "0px", radiusPanel: "0px", radiusPreview: "0px", radiusPill: "0px", btnPadding: "7px 11px", sysPadding: "8px 10px", btnShadow: "none", sysShadow: "none", btnHover: "translateY(0)", sysHover: "translateX(0)", btnCase: "uppercase", btnLetter: "0.07em", btnWeight: "700" },
+        "11": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "0px", radiusPanel: "6px", radiusPreview: "8px", radiusPill: "999px", btnPadding: "8px 12px", sysPadding: "9px 11px", btnShadow: "3px 3px 0 rgba(0,0,0,0.35)", sysShadow: "2px 2px 0 rgba(0,0,0,0.25)", btnHover: "translate(1px, 1px)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.05em", btnWeight: "800" },
+        "12": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "999px", radiusPanel: "16px", radiusPreview: "18px", radiusPill: "999px", btnPadding: "8px 14px", sysPadding: "9px 11px", btnShadow: "inset 0 1px 0 rgba(255,255,255,0.85), 0 2px 4px rgba(0,0,0,0.16)", sysShadow: "0 1px 3px rgba(0,0,0,0.12)", btnHover: "translateY(-1px)", sysHover: "translateX(2px)", btnCase: "none", btnLetter: "0.01em", btnWeight: "700" },
+        "13": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "2px", radiusPanel: "4px", radiusPreview: "4px", radiusPill: "4px", btnPadding: "6px 10px", sysPadding: "7px 9px", btnShadow: "inset 0 1px 0 rgba(255,255,255,0.15), 0 1px 2px rgba(0,0,0,0.35)", sysShadow: "inset 0 1px 0 rgba(255,255,255,0.08)", btnHover: "translateY(0)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.03em", btnWeight: "700" },
+        "14": { btnBorder: "dashed", panelBorder: "dashed", radiusBtn: "0px", radiusPanel: "2px", radiusPreview: "2px", radiusPill: "2px", btnPadding: "7px 11px", sysPadding: "8px 10px", btnShadow: "2px 2px 0 rgba(0,0,0,0.3)", sysShadow: "1px 1px 0 rgba(0,0,0,0.2)", btnHover: "translateY(0)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.05em", btnWeight: "700" },
+        "15": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "3px", radiusPanel: "6px", radiusPreview: "8px", radiusPill: "999px", btnPadding: "8px 12px", sysPadding: "9px 11px", btnShadow: "0 0 12px rgba(255,177,74,0.18)", sysShadow: "0 0 8px rgba(255,177,74,0.12)", btnHover: "translateY(-1px)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.04em", btnWeight: "700" },
+        "16": { btnBorder: "solid", panelBorder: "solid", btnBorderWidth: "3px", sysBorderWidth: "2px", radiusBtn: "0px", radiusPanel: "0px", radiusPreview: "0px", radiusPill: "0px", btnPadding: "10px 22px", sysPadding: "9px 11px", btnShadow: "4px 4px 0 #01cdfe, 8px 8px 0 #fffb96", btnPrimaryShadow: "4px 4px 0 #01cdfe, 8px 8px 0 #fffb96", sysShadow: "4px 4px 0 rgba(1,205,254,0.45)", btnHover: "translate(-2px, -2px)", btnPrimaryHover: "translate(-2px, -2px)", sysHover: "translateX(0)", btnCase: "none", btnLetter: "0.26em", btnWeight: "700", btnTextShadow: "2px 2px 0 #b967ff", btnBg: "linear-gradient(135deg, #ff71ce, #b967ff)", btnPrimaryBg: "linear-gradient(135deg, #ff71ce, #b967ff)", btnPrimaryColor: "#ffffff", btnHoverBg: "linear-gradient(135deg, #ff71ce, #b967ff)", sysHoverBg: "#ffd1f1" },
+        "17": { btnBorder: "solid", panelBorder: "solid", btnBorderWidth: "3px", sysBorderWidth: "3px", radiusBtn: "0px", radiusPanel: "0px", radiusPreview: "0px", radiusPill: "0px", btnPadding: "12px 24px", sysPadding: "9px 11px", btnShadow: "5px 5px 0 #000000", btnPrimaryShadow: "5px 5px 0 #000000", sysShadow: "3px 3px 0 #000000", btnHover: "translate(-2px, -2px)", btnPrimaryHover: "translate(-2px, -2px)", sysHover: "translate(-1px, -1px)", btnCase: "uppercase", btnLetter: "0.06em", btnWeight: "900", btnBg: "#ff4fa3", btnPrimaryBg: "#12c3ce", btnPrimaryColor: "#000000", btnHoverBg: "#ffe034", sysHoverBg: "#fff8e3", btnTextShadow: "none" },
+        "18": { btnBorder: "solid", panelBorder: "solid", radiusBtn: "3px", radiusPanel: "6px", radiusPreview: "6px", radiusPill: "999px", btnPadding: "7px 11px", sysPadding: "8px 10px", btnShadow: "0 2px 4px rgba(0,0,0,0.25)", sysShadow: "0 1px 2px rgba(0,0,0,0.18)", btnHover: "translateY(-1px)", sysHover: "translateX(1px)", btnCase: "uppercase", btnLetter: "0.05em", btnWeight: "700" }
+      };
+
+      const motionProfileMap = {
+        "01": { anim: "rds-step", dur: "1600ms", timing: "steps(2, end)", iter: "infinite", hoverDur: "80ms", hoverEase: "linear", overlayOpacity: "0", overlayBlend: "normal" },
+        "02": { anim: "none", dur: "0ms", timing: "linear", iter: "1", hoverDur: "0ms", hoverEase: "linear", overlayOpacity: "0", overlayBlend: "normal" },
+        "03": { anim: "rds-drift", dur: "3800ms", timing: "ease-in-out", iter: "infinite", hoverDur: "140ms", hoverEase: "ease-out", overlayOpacity: "0", overlayBlend: "normal" },
+        "04": { anim: "rds-drift", dur: "3000ms", timing: "ease-in-out", iter: "infinite", hoverDur: "140ms", hoverEase: "ease-out", overlayOpacity: "0", overlayBlend: "normal" },
+        "05": { anim: "rds-step", dur: "2000ms", timing: "steps(3, end)", iter: "infinite", hoverDur: "70ms", hoverEase: "linear", overlayOpacity: "0", overlayBlend: "normal" },
+        "06": { anim: "none", dur: "0ms", timing: "linear", iter: "1", hoverDur: "100ms", hoverEase: "linear", overlayOpacity: "0", overlayBlend: "normal" },
+        "07": { anim: "rds-pulse", dur: "2800ms", timing: "ease-in-out", iter: "infinite", hoverDur: "120ms", hoverEase: "ease-out", overlayOpacity: "0", overlayBlend: "normal" },
+        "08": { anim: "rds-step", dur: "900ms", timing: "steps(2, end)", iter: "infinite", hoverDur: "0ms", hoverEase: "linear", overlayOpacity: "0.08", overlayBlend: "screen" },
+        "09": { anim: "rds-flicker", dur: "450ms", timing: "linear", iter: "infinite", hoverDur: "0ms", hoverEase: "linear", overlayOpacity: "0.22", overlayBlend: "screen" },
+        "10": { anim: "rds-step", dur: "700ms", timing: "steps(2, end)", iter: "infinite", hoverDur: "0ms", hoverEase: "linear", overlayOpacity: "0.14", overlayBlend: "screen" },
+        "11": { anim: "rds-pulse", dur: "700ms", timing: "steps(2, end)", iter: "infinite", hoverDur: "90ms", hoverEase: "linear", overlayOpacity: "0.06", overlayBlend: "screen" },
+        "12": { anim: "rds-drift", dur: "3600ms", timing: "ease-in-out", iter: "infinite", hoverDur: "140ms", hoverEase: "ease-out", overlayOpacity: "0", overlayBlend: "normal" },
+        "13": { anim: "rds-step", dur: "950ms", timing: "steps(2, end)", iter: "infinite", hoverDur: "80ms", hoverEase: "linear", overlayOpacity: "0.04", overlayBlend: "screen" },
+        "14": { anim: "rds-pulse", dur: "1200ms", timing: "steps(2, end)", iter: "infinite", hoverDur: "70ms", hoverEase: "linear", overlayOpacity: "0.1", overlayBlend: "screen" },
+        "15": { anim: "rds-flicker", dur: "900ms", timing: "linear", iter: "infinite", hoverDur: "110ms", hoverEase: "ease-in-out", overlayOpacity: "0.12", overlayBlend: "screen" },
+        "16": { anim: "rds-drift", dur: "2200ms", timing: "ease-in-out", iter: "infinite", hoverDur: "140ms", hoverEase: "ease-out", overlayOpacity: "0.03", overlayBlend: "screen" },
+        "17": { anim: "rds-pulse", dur: "1400ms", timing: "ease-in-out", iter: "infinite", hoverDur: "100ms", hoverEase: "ease-in-out", overlayOpacity: "0", overlayBlend: "normal" },
+        "18": { anim: "rds-step", dur: "1300ms", timing: "steps(2, end)", iter: "infinite", hoverDur: "90ms", hoverEase: "linear", overlayOpacity: "0.05", overlayBlend: "screen" }
+      };
+
+      let activeButton = null;
+
+      function applyUiProfileForSystem(systemId) {
+        const profile = uiProfileMap[systemId];
+        if (!profile) {
+          return;
+        }
+        const root = document.documentElement.style;
+        root.setProperty("--btn-border-width", profile.btnBorderWidth || "1px");
+        root.setProperty("--sys-border-width", profile.sysBorderWidth || "1px");
+        root.setProperty("--btn-border-style", profile.btnBorder);
+        root.setProperty("--panel-border-style", profile.panelBorder);
+        root.setProperty("--radius-btn", profile.radiusBtn);
+        root.setProperty("--radius-panel", profile.radiusPanel);
+        root.setProperty("--radius-preview", profile.radiusPreview);
+        root.setProperty("--radius-pill", profile.radiusPill);
+        root.setProperty("--btn-padding", profile.btnPadding);
+        root.setProperty("--sys-padding", profile.sysPadding);
+        root.setProperty("--btn-shadow", profile.btnShadow);
+        root.setProperty("--btn-primary-shadow", profile.btnPrimaryShadow || profile.btnShadow);
+        root.setProperty("--sys-shadow", profile.sysShadow);
+        root.setProperty("--btn-hover-transform", profile.btnHover);
+        root.setProperty("--btn-primary-hover-transform", profile.btnPrimaryHover || profile.btnHover);
+        root.setProperty("--sys-hover-transform", profile.sysHover);
+        root.setProperty("--btn-text-transform", profile.btnCase);
+        root.setProperty("--btn-letter-spacing", profile.btnLetter);
+        root.setProperty("--btn-font-weight", profile.btnWeight);
+        root.setProperty("--btn-text-shadow", profile.btnTextShadow || "none");
+        root.setProperty("--sys-text-shadow", profile.sysTextShadow || "none");
+        root.setProperty("--btn-primary-color", profile.btnPrimaryColor || "var(--text)");
+        if (profile.btnBg) {
+          root.setProperty("--btn-bg", profile.btnBg);
+        } else {
+          root.removeProperty("--btn-bg");
+        }
+        root.setProperty("--btn-primary-bg", profile.btnPrimaryBg || "linear-gradient(180deg, var(--btn-primary-1), var(--btn-primary-2))");
+        root.setProperty("--btn-hover-bg", profile.btnHoverBg || "var(--panel-2)");
+        root.setProperty("--sys-hover-bg", profile.sysHoverBg || "var(--panel-2)");
+      }
+
+      function applyMotionProfileForSystem(systemId) {
+        const profile = motionProfileMap[systemId];
+        if (!profile) {
+          return;
+        }
+        const root = document.documentElement.style;
+        root.setProperty("--chrome-anim", profile.anim);
+        root.setProperty("--chrome-anim-duration", profile.dur);
+        root.setProperty("--chrome-anim-timing", profile.timing);
+        root.setProperty("--chrome-anim-iter", profile.iter);
+        root.setProperty("--hover-duration", profile.hoverDur);
+        root.setProperty("--hover-easing", profile.hoverEase);
+        root.setProperty("--overlay-opacity", profile.overlayOpacity);
+        root.setProperty("--overlay-blend", profile.overlayBlend);
+      }
+
+      function applyThemeForSystem(systemId) {
+        const selectedTheme = themeMap[systemId];
+        if (!selectedTheme) {
+          return;
+        }
+        document.documentElement.style.setProperty("--ui-font", selectedTheme.font);
+        document.documentElement.style.setProperty("--ui-heading-font", selectedTheme.headingFont);
+        document.documentElement.style.setProperty("--ui-control-font", selectedTheme.controlFont);
+        Object.entries(selectedTheme.vars).forEach(([name, value]) => {
+          document.documentElement.style.setProperty(name, value);
+        });
+      }
+
+      function selectSystem(system, button) {
+        if (activeButton) activeButton.classList.remove("active");
+        activeButton = button;
+        activeButton.classList.add("active");
+
+        nameEl.textContent = `${system.id}. ${system.name}`;
+        eraEl.textContent = system.era;
+        vibeEl.textContent = `Vibe: ${system.vibe}`;
+
+        openTabEl.href = system.path;
+        emptyEl.classList.remove("show");
+        frameEl.src = encodeURI(system.path);
+        applyThemeForSystem(system.id);
+        applyUiProfileForSystem(system.id);
+        applyMotionProfileForSystem(system.id);
+
+        const failTimer = window.setTimeout(() => {
+          emptyEl.classList.add("show");
+        }, 1400);
+
+        frameEl.onload = () => {
+          window.clearTimeout(failTimer);
+          emptyEl.classList.remove("show");
+        };
+      }
+
+      systems.forEach((system) => {
+        const btn = document.createElement("button");
+        btn.className = "sys-btn";
+        btn.type = "button";
+        btn.innerHTML = `<span class="sys-name">${system.id}. ${system.name}</span><span class="sys-era">${system.era}</span>`;
+        btn.addEventListener("click", () => selectSystem(system, btn));
+        listEl.appendChild(btn);
+      });
+
+      selectSystem(systems[0], listEl.firstElementChild);
+    </script>
+  </body>
+</html>

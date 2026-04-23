@@ -10,6 +10,11 @@ Retro Design System is an **AI-ready retro UI design system library** for develo
 
 Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
 
+## Live Showcase
+
+- Interactive explorer: `https://novusgfx.github.io/retro-design-system/`
+- Source page: `docs/index.html`
+
 ## About
 
 ### Description
