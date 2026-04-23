@@ -91,6 +91,10 @@
         border-right: 1px solid var(--border);
         background: linear-gradient(180deg, var(--sidebar-grad-1) 0%, var(--sidebar-grad-2) 100%);
         padding: 18px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow: hidden;
       }
 
       .title {
@@ -114,6 +118,11 @@
       .list {
         display: grid;
         gap: 8px;
+        overflow-y: auto;
+        padding-right: 4px;
+        flex: 1;
+        min-height: 0;
+        align-content: start;
       }
 
       .sys-btn {
@@ -128,6 +137,7 @@
         text-shadow: var(--sys-text-shadow);
         font-family: var(--ui-control-font);
         transition: transform var(--hover-duration) var(--hover-easing), border-color var(--hover-duration) var(--hover-easing), background var(--hover-duration) var(--hover-easing);
+        position: relative;
       }
 
       .sys-btn:hover {
@@ -138,7 +148,22 @@
 
       .sys-btn.active {
         border-color: var(--accent);
-        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent), transparent 65%);
+        background: color-mix(in srgb, var(--panel-2), var(--accent) 14%);
+        box-shadow:
+          inset 0 0 0 1px color-mix(in srgb, var(--accent), transparent 40%),
+          0 0 0 1px color-mix(in srgb, var(--accent), transparent 72%);
+        transform: translateX(4px);
+      }
+
+      .sys-btn.active::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: -2px;
+        width: 3px;
+        border-radius: 999px;
+        background: var(--accent);
       }
 
       .sys-name {
@@ -345,7 +370,7 @@
           border-right: 0;
           border-bottom: 1px solid var(--border);
           max-height: 38vh;
-          overflow: auto;
+          overflow: hidden;
         }
 
         .main {
@@ -410,14 +435,14 @@
         { id: "16", name: "Vaporwave", era: "1980s-1990s revival", vibe: "Pastel gradients, chrome statues, surreal nostalgia", path: "../styles/16-vaporwave/index.html" },
         { id: "17", name: "Memphis", era: "1980s", vibe: "Playful geometry, dotted textures, bold contrast", path: "../styles/17-memphis/index.html" },
         { id: "18", name: "PS1 Tech", era: "1994-2000", vibe: "Low-poly utility UI, utilitarian sci-fi overlays", path: "../styles/18-ps1-tech/index.html" },
-        { id: "19", name: "OS/2 Warp", era: "1994", vibe: "Workplace Shell, object-oriented desktop, teal background", path: "../styles/19-os2-warp/index.html", isNew: true },
-        { id: "20", name: "Mac OS 9 Platinum", era: "1999", vibe: "Brushed pinstripes, Charcoal type, throbbing default button", path: "../styles/20-macos9-platinum/index.html", isNew: true },
-        { id: "21", name: "Web 2.0 Glossy", era: "2006", vibe: "Reflective type, beta badges, glossy gradient buttons", path: "../styles/21-web20-glossy/index.html", isNew: true },
-        { id: "22", name: "Game Boy DMG", era: "1989", vibe: "4-shade LCD green, dot-matrix pixel UI, molded shell", path: "../styles/22-gameboy-dmg/index.html", isNew: true },
-        { id: "23", name: "Braun / Rams", era: "1960s", vibe: "Less but better, Swiss grid, single orange accent", path: "../styles/23-braun-rams/index.html", isNew: true },
-        { id: "24", name: "Tron Vector", era: "1982", vibe: "Black void, cyan glow grid, orange rival, perspective floor", path: "../styles/24-tron-vector/index.html", isNew: true },
-        { id: "25", name: "VHS Tracking", era: "1987", vibe: "OSD timecode, chromatic aberration, tracking bars, SMPTE", path: "../styles/25-vhs-tracking/index.html", isNew: true },
-        { id: "26", name: "Risograph", era: "1980s-present", vibe: "Fluoro pink + blue multiply, halftone grain, off-register", path: "../styles/26-risograph/index.html", isNew: true },
+        { id: "19", name: "OS/2 Warp", era: "1994", vibe: "Workplace Shell, object-oriented desktop, teal background", path: "../styles/19-os2-warp/index.html" },
+        { id: "20", name: "Mac OS 9 Platinum", era: "1999", vibe: "Brushed pinstripes, Charcoal type, throbbing default button", path: "../styles/20-macos9-platinum/index.html" },
+        { id: "21", name: "Web 2.0 Glossy", era: "2006", vibe: "Reflective type, beta badges, glossy gradient buttons", path: "../styles/21-web20-glossy/index.html" },
+        { id: "22", name: "Game Boy DMG", era: "1989", vibe: "4-shade LCD green, dot-matrix pixel UI, molded shell", path: "../styles/22-gameboy-dmg/index.html" },
+        { id: "23", name: "Braun / Rams", era: "1960s", vibe: "Less but better, Swiss grid, single orange accent", path: "../styles/23-braun-rams/index.html" },
+        { id: "24", name: "Tron Vector", era: "1982", vibe: "Black void, cyan glow grid, orange rival, perspective floor", path: "../styles/24-tron-vector/index.html" },
+        { id: "25", name: "VHS Tracking", era: "1987", vibe: "OSD timecode, chromatic aberration, tracking bars, SMPTE", path: "../styles/25-vhs-tracking/index.html" },
+        { id: "26", name: "Risograph", era: "1980s-present", vibe: "Fluoro pink + blue multiply, halftone grain, off-register", path: "../styles/26-risograph/index.html" },
         { id: "27", name: "IBM 3270", era: "1971", vibe: "Mainframe turquoise + green fields, protected/unprotected, OIA line", path: "../styles/27-ibm-3270/index.html", isNew: true },
         { id: "28", name: "NetHack ASCII", era: "1987", vibe: "Roguelike dungeon map, @ player, color ASCII, HP/Dlvl status", path: "../styles/28-nethack-ascii/index.html", isNew: true },
         { id: "29", name: "TempleOS", era: "2005", vibe: "16-color DOS blue, rainbow HolyC, divine centered text", path: "../styles/29-templeos/index.html", isNew: true },
