@@ -152,6 +152,23 @@
         font-size: 0.82rem;
       }
 
+      .sys-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .new-chip {
+        display: inline-block;
+        border: 1px solid color-mix(in srgb, var(--accent), #000 25%);
+        border-radius: 999px;
+        padding: 1px 6px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--accent);
+      }
+
       .main {
         padding: 18px;
         display: grid;
@@ -343,7 +360,7 @@
         <h1 class="title">RDS Explorer</h1>
         <p class="subtitle">
           Select a system to preview it individually from this repository.
-          Each preview loads from the organized styles folder.
+          <span id="system-count-note">Each preview loads from the organized styles folder.</span>
         </p>
         <div id="system-list" class="list" aria-label="Design systems"></div>
       </aside>
@@ -393,14 +410,14 @@
         { id: "16", name: "Vaporwave", era: "1980s-1990s revival", vibe: "Pastel gradients, chrome statues, surreal nostalgia", path: "../styles/16-vaporwave/index.html" },
         { id: "17", name: "Memphis", era: "1980s", vibe: "Playful geometry, dotted textures, bold contrast", path: "../styles/17-memphis/index.html" },
         { id: "18", name: "PS1 Tech", era: "1994-2000", vibe: "Low-poly utility UI, utilitarian sci-fi overlays", path: "../styles/18-ps1-tech/index.html" },
-        { id: "19", name: "OS/2 Warp", era: "1994", vibe: "Workplace Shell, object-oriented desktop, teal background", path: "../styles/19-os2-warp/index.html" },
-        { id: "20", name: "Mac OS 9 Platinum", era: "1999", vibe: "Brushed pinstripes, Charcoal type, throbbing default button", path: "../styles/20-macos9-platinum/index.html" },
-        { id: "21", name: "Web 2.0 Glossy", era: "2006", vibe: "Reflective type, beta badges, glossy gradient buttons", path: "../styles/21-web20-glossy/index.html" },
-        { id: "22", name: "Game Boy DMG", era: "1989", vibe: "4-shade LCD green, dot-matrix pixel UI, molded shell", path: "../styles/22-gameboy-dmg/index.html" },
-        { id: "23", name: "Braun / Rams", era: "1960s", vibe: "Less but better, Swiss grid, single orange accent", path: "../styles/23-braun-rams/index.html" },
-        { id: "24", name: "Tron Vector", era: "1982", vibe: "Black void, cyan glow grid, orange rival, perspective floor", path: "../styles/24-tron-vector/index.html" },
-        { id: "25", name: "VHS Tracking", era: "1987", vibe: "OSD timecode, chromatic aberration, tracking bars, SMPTE", path: "../styles/25-vhs-tracking/index.html" },
-        { id: "26", name: "Risograph", era: "1980s-present", vibe: "Fluoro pink + blue multiply, halftone grain, off-register", path: "../styles/26-risograph/index.html" }
+        { id: "19", name: "OS/2 Warp", era: "1994", vibe: "Workplace Shell, object-oriented desktop, teal background", path: "../styles/19-os2-warp/index.html", isNew: true },
+        { id: "20", name: "Mac OS 9 Platinum", era: "1999", vibe: "Brushed pinstripes, Charcoal type, throbbing default button", path: "../styles/20-macos9-platinum/index.html", isNew: true },
+        { id: "21", name: "Web 2.0 Glossy", era: "2006", vibe: "Reflective type, beta badges, glossy gradient buttons", path: "../styles/21-web20-glossy/index.html", isNew: true },
+        { id: "22", name: "Game Boy DMG", era: "1989", vibe: "4-shade LCD green, dot-matrix pixel UI, molded shell", path: "../styles/22-gameboy-dmg/index.html", isNew: true },
+        { id: "23", name: "Braun / Rams", era: "1960s", vibe: "Less but better, Swiss grid, single orange accent", path: "../styles/23-braun-rams/index.html", isNew: true },
+        { id: "24", name: "Tron Vector", era: "1982", vibe: "Black void, cyan glow grid, orange rival, perspective floor", path: "../styles/24-tron-vector/index.html", isNew: true },
+        { id: "25", name: "VHS Tracking", era: "1987", vibe: "OSD timecode, chromatic aberration, tracking bars, SMPTE", path: "../styles/25-vhs-tracking/index.html", isNew: true },
+        { id: "26", name: "Risograph", era: "1980s-present", vibe: "Fluoro pink + blue multiply, halftone grain, off-register", path: "../styles/26-risograph/index.html", isNew: true }
       ];
 
       const listEl = document.getElementById("system-list");
@@ -410,6 +427,9 @@
       const eraEl = document.getElementById("selected-era");
       const vibeEl = document.getElementById("selected-vibe");
       const openTabEl = document.getElementById("open-tab");
+      const countNoteEl = document.getElementById("system-count-note");
+
+      countNoteEl.textContent = `Showing ${systems.length} systems from the organized styles folder.`;
 
       function createTheme(config) {
         return {
@@ -628,7 +648,8 @@
         const btn = document.createElement("button");
         btn.className = "sys-btn";
         btn.type = "button";
-        btn.innerHTML = `<span class="sys-name">${system.id}. ${system.name}</span><span class="sys-era">${system.era}</span>`;
+        const newChip = system.isNew ? '<span class="new-chip">NEW</span>' : "";
+        btn.innerHTML = `<span class="sys-name">${system.id}. ${system.name}</span><span class="sys-meta"><span class="sys-era">${system.era}</span>${newChip}</span>`;
         btn.addEventListener("click", () => selectSystem(system, btn));
         listEl.appendChild(btn);
       });
