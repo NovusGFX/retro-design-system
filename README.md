@@ -12,7 +12,7 @@ Each style pack is built to be easy for humans and AI coding agents (Claude, Cod
 
 ## Live Showcase
 
-- Interactive explorer: [https://novusgfx.github.io/retro-design-system/](https://novusgfx.github.io/retro-design-system/)
+- Interactive explorer: [https://novusgfx.github.io/retro-design-system/docs/](https://novusgfx.github.io/retro-design-system/docs/)
 - Source page: `docs/index.html`
 
 ## About
