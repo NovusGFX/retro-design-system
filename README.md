@@ -2,7 +2,7 @@
 
 A collection of **18 self-contained retro UI design systems**, each inspired by a specific era of computing. Every system lives in its own folder and ships as a single `index.html` file with tokens, components, and a showcase layout.
 
-## Screenshot Preview (5 examples)
+## Screenshot Preview
 
 | Mac System 7 | Windows 95 |
 |---|---|
@@ -15,6 +15,14 @@ A collection of **18 self-contained retro UI design systems**, each inspired by 
 | Amiga Workbench |
 |---|
 | ![Amiga Workbench UI](./assets/system-05-amiga-workbench.png) |
+
+| CRT Phosphor | DOS CGA |
+|---|---|
+| ![CRT Phosphor UI](./assets/system-09-crt-phosphor.png) | ![DOS CGA UI](./assets/system-10-dos-cga.png) |
+
+| 8-Bit Arcade | Cassette Futurism |
+|---|---|
+| ![8-Bit Arcade UI](./assets/system-11-8bit-arcade.png) | ![Cassette Futurism UI](./assets/system-15-cassette-futurism.png) |
 
 ## Included Systems
 
@@ -52,6 +60,36 @@ Then visit `http://localhost:8000/`.
 - Pick the system you want.
 - Copy its token/style section into your project CSS.
 - Reuse component markup patterns from the showcase to get the full look quickly.
+
+## Using With AI Coding Agents (Claude, Codex, Gemini, etc.)
+
+Use any of the system folders as a visual/style reference and ask your agent to implement UI using that style's tokens and component patterns.
+
+### Suggested workflow
+
+1. Point the agent to a specific system folder (for example `11-8bit-arcade/index.html`).
+2. Ask it to extract tokens (colors, typography, spacing, shadows, borders) into reusable variables.
+3. Ask it to build your target component/page in that same visual language.
+4. Ask it to avoid modern defaults that break the retro look.
+
+### Prompt template
+
+```text
+Use `D:\Retro Design System\11-8bit-arcade\index.html` as the style reference.
+Create [component/page] in this same visual language.
+
+Requirements:
+- Reuse the same color palette, type style, border treatment, and spacing rhythm
+- Match button/input/window styling patterns from the reference
+- Keep accessibility in mind (contrast, keyboard focus states, semantic HTML)
+- Output clean, production-ready HTML/CSS (or React + CSS)
+```
+
+You can swap the reference path for any style in this repo:
+- `09-crt-phosphor`
+- `10-dos-cga`
+- `11-8bit-arcade`
+- `15-cassette-futurism`
 
 ## Project Structure
 
