@@ -6,18 +6,16 @@
 [![AI Agent Ready](https://img.shields.io/badge/AI%20Agent-Ready-00a86b?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](./LICENSE)
 
-Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 18 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, and cassette futurism.
-
-Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
-
 ## Live Showcase
 
 - Interactive explorer: [https://novusgfx.github.io/retro-design-system/docs/](https://novusgfx.github.io/retro-design-system/docs/)
 - Source page: `docs/index.html`
 
-## About
+Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 18 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, and cassette futurism.
 
-### Description
+Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
+
+## About
 
 An AI-agent-friendly collection of retro-inspired web UI systems with reusable tokens, component patterns, and visual references for rapid prototyping and production styling.
 
@@ -27,10 +25,6 @@ Built for modern workflows, this library is especially useful when paired with A
 
 If you are building creative tools, game launchers, retro dashboards, experimental websites, synthwave projects, or throwback app skins, this repo gives you a strong design baseline plus copy-paste-ready references.
 
-## Tags / SEO Keywords
-
-`retro-ui`, `design-system`, `css`, `html`, `ui-kit`, `nostalgia`, `web-design`, `frontend`, `ai-agents`, `claude`, `codex`, `gemini`, `prompt-engineering`, `vibe-coding`, `windows-95`, `windows-xp`, `aqua`, `crt`, `8-bit`, `pixel-art`
-
 ## Use Cases
 
 - **AI-generated frontend themes**: Use Claude/Codex/Gemini to generate pages and components that match a specific retro style.
@@ -39,26 +33,6 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 - **Prompt-to-UI workflows**: Feed a style reference to an AI agent and get reusable HTML/CSS output faster.
 - **Creative coding and portfolio projects**: Add nostalgia-forward visual identity to experimental web projects.
 - **Design token extraction for theming**: Lift palettes, borders, shadows, and typography rules into your own component systems.
-
-## Search-Friendly FAQ
-
-### What is Retro Design System?
-Retro Design System is a collection of 18 standalone retro web UI themes built with HTML and CSS. Each theme includes tokens, component styling, and a visual demo layout in a single `index.html` file.
-
-### Can I use this with Claude, Codex, Gemini, Cursor, or other coding assistants?
-Yes. Point your assistant to one of the style folders, then ask for a component or page that matches that visual language. This works well for quick prototyping and theme-consistent UI generation.
-
-### Is this good for production projects?
-Yes, if you adapt the styles to your product requirements. The examples are intentionally visual and expressive, and they can be refined for accessibility, responsiveness, and brand constraints.
-
-### What tech stack does this support?
-The base assets are plain HTML and CSS, so you can use them in static sites, React, Next.js, Vue, Svelte, Astro, and most frontend frameworks.
-
-### Can I extract design tokens from each system?
-Yes. Each system includes reusable color, typography, spacing, border, and shadow patterns that can be moved into CSS variables or a token pipeline.
-
-### Which retro styles are included?
-The collection includes themes inspired by Mac System 7, Windows 95, Windows XP, Aqua, CRT terminals, DOS CGA, 8-bit arcade visuals, cassette futurism, and more.
 
 ## Screenshot Preview
 
@@ -161,6 +135,17 @@ styles/
   ...
   18-ps1-tech/
 ```
+
+## FAQ
+
+### Can I use this with Claude, Codex, Gemini, Cursor, or other coding assistants?
+Yes. Point your assistant to one of the style folders, then ask for a component or page that matches that visual language.
+
+### Is this good for production projects?
+Yes, with refinement for your product needs. The systems are intentionally expressive and can be adapted for accessibility, responsiveness, and brand constraints.
+
+### What tech stack does this support?
+The base assets are plain HTML and CSS, so you can use them in static sites and in frameworks like React, Next.js, Vue, Svelte, and Astro.
 
 ## Credits
 
