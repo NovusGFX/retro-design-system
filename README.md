@@ -35,6 +35,26 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 - **Creative coding and portfolio projects**: Add nostalgia-forward visual identity to experimental web projects.
 - **Design token extraction for theming**: Lift palettes, borders, shadows, and typography rules into your own component systems.
 
+## Search-Friendly FAQ
+
+### What is Retro Design System?
+Retro Design System is a collection of 18 standalone retro web UI themes built with HTML and CSS. Each theme includes tokens, component styling, and a visual demo layout in a single `index.html` file.
+
+### Can I use this with Claude, Codex, Gemini, Cursor, or other coding assistants?
+Yes. Point your assistant to one of the style folders, then ask for a component or page that matches that visual language. This works well for quick prototyping and theme-consistent UI generation.
+
+### Is this good for production projects?
+Yes, if you adapt the styles to your product requirements. The examples are intentionally visual and expressive, and they can be refined for accessibility, responsiveness, and brand constraints.
+
+### What tech stack does this support?
+The base assets are plain HTML and CSS, so you can use them in static sites, React, Next.js, Vue, Svelte, Astro, and most frontend frameworks.
+
+### Can I extract design tokens from each system?
+Yes. Each system includes reusable color, typography, spacing, border, and shadow patterns that can be moved into CSS variables or a token pipeline.
+
+### Which retro styles are included?
+The collection includes themes inspired by Mac System 7, Windows 95, Windows XP, Aqua, CRT terminals, DOS CGA, 8-bit arcade visuals, cassette futurism, and more.
+
 ## Screenshot Preview
 
 | Mac System 7 | Windows 95 |
