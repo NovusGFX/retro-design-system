@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/network/members)
 [![Last commit](https://img.shields.io/github/last-commit/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/commits/main)
 [![AI Agent Ready](https://img.shields.io/badge/AI%20Agent-Ready-00a86b?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system)
-[![License](https://img.shields.io/badge/license-Unspecified-lightgrey?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](./LICENSE)
 
 Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 18 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, and cassette futurism.
 
@@ -158,3 +158,7 @@ Each numbered folder contains one standalone system:
 ## Credits
 
 Created by **NovusGFX**.
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE`.
