@@ -13,7 +13,7 @@
 - Interactive explorer: [https://novusgfx.github.io/retro-design-system/docs/](https://novusgfx.github.io/retro-design-system/docs/)
 - Source page: `docs/index.html`
 
-Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 18 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, and cassette futurism.
+Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 26 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, Tron, Risograph print, and cassette futurism.
 
 Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
 
@@ -78,6 +78,14 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 16. Vaporwave
 17. Memphis
 18. PS1 Tech
+19. OS/2 Warp
+20. Mac OS 9 Platinum
+21. Web 2.0 Glossy
+22. Game Boy DMG
+23. Braun / Dieter Rams
+24. Tron Vector
+25. VHS Tracking
+26. Risograph
 
 ## Quick Start
 
@@ -136,6 +144,14 @@ styles/
   02-windows-95/
   ...
   18-ps1-tech/
+  19-os2-warp/
+  20-macos9-platinum/
+  21-web20-glossy/
+  22-gameboy-dmg/
+  23-braun-rams/
+  24-tron-vector/
+  25-vhs-tracking/
+  26-risograph/
 ```
 
 ## FAQ
