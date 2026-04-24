@@ -13,7 +13,7 @@
 - Interactive explorer: [https://novusgfx.github.io/retro-design-system/docs/](https://novusgfx.github.io/retro-design-system/docs/)
 - Source page: `docs/index.html`
 
-Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 34 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, Tron, Risograph print, IBM 3270 mainframes, TempleOS, BBS ANSI art, the Matrix, and cassette futurism.
+Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 54 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, Tron, Risograph print, IBM 3270 mainframes, TempleOS, BBS ANSI art, the Matrix, glassmorphism, Bauhaus, Pop Art, Op Art, liminal spaces, brutalist HTML, and cassette futurism.
 
 Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
 
@@ -94,6 +94,26 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 32. [Matrix Rain](https://github.com/NovusGFX/retro-design-system/blob/main/styles/32-matrix-rain/index.html)
 33. [btop Meters](https://github.com/NovusGFX/retro-design-system/blob/main/styles/33-btop-meters/index.html)
 34. [Commodore 64 BASIC](https://github.com/NovusGFX/retro-design-system/blob/main/styles/34-c64-basic/index.html)
+35. [Flat Design 2013](https://github.com/NovusGFX/retro-design-system/blob/main/styles/35-flat-2013/index.html)
+36. [Glassmorphism](https://github.com/NovusGFX/retro-design-system/blob/main/styles/36-glassmorphism/index.html)
+37. [Neumorphism](https://github.com/NovusGFX/retro-design-system/blob/main/styles/37-neumorphism/index.html)
+38. [Blueprint / CAD](https://github.com/NovusGFX/retro-design-system/blob/main/styles/38-blueprint-cad/index.html)
+39. [Claymorphism](https://github.com/NovusGFX/retro-design-system/blob/main/styles/39-claymorphism/index.html)
+40. [Brutalist Web](https://github.com/NovusGFX/retro-design-system/blob/main/styles/40-brutalist-web/index.html)
+41. [Swiss Style](https://github.com/NovusGFX/retro-design-system/blob/main/styles/41-swiss-intl/index.html)
+42. [Bauhaus](https://github.com/NovusGFX/retro-design-system/blob/main/styles/42-bauhaus/index.html)
+43. [Pop Art](https://github.com/NovusGFX/retro-design-system/blob/main/styles/43-pop-art-lichtenstein/index.html)
+44. [Op Art](https://github.com/NovusGFX/retro-design-system/blob/main/styles/44-op-art/index.html)
+45. [Hypnagogic](https://github.com/NovusGFX/retro-design-system/blob/main/styles/45-hypnagogic/index.html)
+46. [Monochrome Zen](https://github.com/NovusGFX/retro-design-system/blob/main/styles/46-monochrome-zen/index.html)
+47. [Default Browser](https://github.com/NovusGFX/retro-design-system/blob/main/styles/47-default-browser/index.html)
+48. [Wireframe Sketch](https://github.com/NovusGFX/retro-design-system/blob/main/styles/48-wireframe-sketch/index.html)
+49. [Glitch Databend](https://github.com/NovusGFX/retro-design-system/blob/main/styles/49-glitch-databend/index.html)
+50. [Y2K Chrome](https://github.com/NovusGFX/retro-design-system/blob/main/styles/50-y2k-chrome/index.html)
+51. [Duotone Poster](https://github.com/NovusGFX/retro-design-system/blob/main/styles/51-duotone-poster/index.html)
+52. [Grid Paper](https://github.com/NovusGFX/retro-design-system/blob/main/styles/52-grid-paper/index.html)
+53. [Maximalist 90s Banner](https://github.com/NovusGFX/retro-design-system/blob/main/styles/53-maximalist-banners/index.html)
+54. [Corporate Memphis](https://github.com/NovusGFX/retro-design-system/blob/main/styles/54-corporate-memphis/index.html)
 
 ## Quick Start
 
@@ -168,6 +188,26 @@ styles/
   32-matrix-rain/
   33-btop-meters/
   34-c64-basic/
+  35-flat-2013/
+  36-glassmorphism/
+  37-neumorphism/
+  38-blueprint-cad/
+  39-claymorphism/
+  40-brutalist-web/
+  41-swiss-intl/
+  42-bauhaus/
+  43-pop-art-lichtenstein/
+  44-op-art/
+  45-hypnagogic/
+  46-monochrome-zen/
+  47-default-browser/
+  48-wireframe-sketch/
+  49-glitch-databend/
+  50-y2k-chrome/
+  51-duotone-poster/
+  52-grid-paper/
+  53-maximalist-banners/
+  54-corporate-memphis/
 ```
 
 ## FAQ

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>54 Corporate Memphis</title>
+<style>
+  :root {
+    --bg: #f7f5ff;
+    --ink: #1a1a2e;
+    --muted: #6e6e88;
+    --purple: #7a5af8;
+    --purple-light: #c7bafd;
+    --pink: #ff7ab0;
+    --pink-light: #ffc8dc;
+    --mint: #3dd5c8;
+    --mint-light: #b0ecd8;
+    --yellow: #ffd95a;
+    --peach: #ffc4a0;
+    --skin-1: #e8a882;
+    --skin-2: #b87a5a;
+    --skin-3: #f4d4b8;
+    --font: "Circular", "Inter", "Helvetica Neue", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 40px;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  .page { max-width: 900px; margin: 0 auto; }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; padding: 40px 0; }
+  h1 { font-size: 56px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 14px; }
+  h1 span { color: var(--purple); }
+  .sub { font-size: 19px; color: var(--muted); margin-bottom: 24px; font-weight: 400; }
+  h2 { font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 30px 0 14px; color: var(--purple); }
+  p { line-height: 1.7; margin-bottom: 10px; color: var(--ink); }
+
+  .illustration { position: relative; height: 360px; }
+  .figure { position: absolute; }
+
+  /* Figure 1: purple person with floppy arm */
+  .f1 { top: 40px; left: 20px; }
+  .f1 .head { width: 70px; height: 70px; border-radius: 50%; background: var(--skin-1); position: absolute; top: 0; left: 30px; z-index: 2; }
+  .f1 .head::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 70% 40%, transparent 60%, rgba(0,0,0,0.08) 100%); }
+  .f1 .body { width: 130px; height: 150px; background: var(--purple); border-radius: 60px 60px 40px 40px; position: absolute; top: 55px; left: 0; z-index: 1; }
+  .f1 .arm-left { width: 30px; height: 140px; background: var(--skin-1); border-radius: 30px; position: absolute; top: 75px; left: -15px; z-index: 3; transform: rotate(20deg); }
+  .f1 .arm-right { width: 160px; height: 28px; background: var(--skin-1); border-radius: 30px; position: absolute; top: 80px; left: 100px; z-index: 3; transform: rotate(-30deg); transform-origin: left center; }
+  .f1 .leg { width: 28px; height: 80px; background: var(--mint); border-radius: 20px; position: absolute; top: 195px; }
+  .f1 .leg-1 { left: 30px; }
+  .f1 .leg-2 { left: 70px; }
+
+  /* Figure 2: pink person, floating */
+  .f2 { top: 20px; right: 60px; }
+  .f2 .head { width: 60px; height: 60px; border-radius: 50%; background: var(--skin-3); position: absolute; top: 0; left: 40px; z-index: 2; }
+  .f2 .body { width: 110px; height: 130px; background: var(--pink); border-radius: 55px 55px 35px 35px; position: absolute; top: 50px; left: 15px; z-index: 1; }
+  .f2 .arm-up { width: 28px; height: 120px; background: var(--skin-3); border-radius: 20px; position: absolute; top: 40px; left: 0; z-index: 3; transform: rotate(40deg); }
+  .f2 .leg { width: 26px; height: 70px; background: var(--purple); border-radius: 18px; position: absolute; top: 170px; }
+  .f2 .leg-1 { left: 30px; }
+  .f2 .leg-2 { left: 60px; }
+
+  /* Ornamental squiggles */
+  .squiggle-1 { position: absolute; top: 20px; right: 10px; width: 80px; height: 30px; border: 5px solid var(--yellow); border-radius: 50%; border-top-color: transparent; border-right-color: transparent; transform: rotate(-20deg); }
+  .dot-1 { position: absolute; top: 240px; left: 50%; width: 14px; height: 14px; border-radius: 50%; background: var(--mint); }
+  .dot-2 { position: absolute; top: 60px; left: 200px; width: 10px; height: 10px; border-radius: 50%; background: var(--pink); }
+  .dot-3 { position: absolute; top: 280px; right: 30px; width: 20px; height: 20px; border-radius: 50%; background: var(--yellow); }
+  .plus-1 { position: absolute; bottom: 20px; left: 100px; color: var(--purple); font-size: 32px; font-weight: 300; }
+  .zigzag-1 { position: absolute; top: 150px; right: 220px; color: var(--mint); font-size: 28px; transform: rotate(15deg); }
+
+  .card { background: #fff; border-radius: 24px; padding: 28px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(122,90,248,0.08); border: 1px solid var(--purple-light); }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--purple-light);
+    color: var(--purple);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple); }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .feature {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px;
+    border: 1px solid rgba(122,90,248,0.15);
+  }
+  .feature .icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .feature h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .feature p { font-size: 14px; color: var(--muted); line-height: 1.5; margin-bottom: 0; }
+  .fi-1 { background: var(--purple-light); color: var(--purple); }
+  .fi-2 { background: var(--pink-light); color: var(--pink); }
+  .fi-3 { background: var(--mint-light); color: var(--mint); }
+
+  .btn {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 15px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 13px 28px;
+    cursor: pointer;
+  }
+  .btn:hover { background: #6948e5; }
+  .btn-outline { background: transparent; color: var(--purple); border: 2px solid var(--purple); padding: 11px 26px; }
+  .btn-outline:hover { background: var(--purple-light); }
+
+  .input {
+    font-family: var(--font);
+    font-size: 15px;
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--purple-light);
+    border-radius: 999px;
+    padding: 12px 20px;
+    width: 320px;
+  }
+  .input:focus { outline: none; border-color: var(--purple); }
+
+  .row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+  .swatch { width: 68px; height: 68px; border-radius: 16px; display: inline-block; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div>
+      <div class="pill"><span class="pill-dot"></span> PRODUCT</div>
+      <h1>Empower your team to <span>do more.</span></h1>
+      <div class="sub">Collaborative. Cloud-native. A frictionless platform for ambitious people and the tools they love.</div>
+      <div class="row">
+        <button class="btn">Start free trial</button>
+        <button class="btn-outline btn">Book a demo</button>
+      </div>
+    </div>
+
+    <div class="illustration">
+      <div class="squiggle-1"></div>
+      <div class="dot-1"></div>
+      <div class="dot-2"></div>
+      <div class="dot-3"></div>
+      <div class="zigzag-1">〰</div>
+      <div class="plus-1">+</div>
+
+      <div class="figure f1">
+        <div class="leg leg-1"></div>
+        <div class="leg leg-2"></div>
+        <div class="body"></div>
+        <div class="head"></div>
+        <div class="arm-left"></div>
+        <div class="arm-right"></div>
+      </div>
+      <div class="figure f2">
+        <div class="leg leg-1"></div>
+        <div class="leg leg-2"></div>
+        <div class="body"></div>
+        <div class="head"></div>
+        <div class="arm-up"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Why thousands of teams love us</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon fi-1">✦</div>
+        <h3>Seamless</h3>
+        <p>Integrations with every tool your team already uses. Zero friction.</p>
+      </div>
+      <div class="feature">
+        <div class="icon fi-2">♥</div>
+        <h3>Loved</h3>
+        <p>4.9 stars. Thousands of happy teams around the world.</p>
+      </div>
+      <div class="feature">
+        <div class="icon fi-3">⚡</div>
+        <h3>Lightning fast</h3>
+        <p>Built on modern infrastructure. Delightfully quick, always.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Join the list</h2>
+    <div class="row">
+      <input class="input" value="hello@work.io">
+      <button class="btn">Notify me</button>
+    </div>
+
+    <h2>Palette</h2>
+    <div class="row">
+      <span class="swatch" style="background:var(--purple)"></span>
+      <span class="swatch" style="background:var(--pink)"></span>
+      <span class="swatch" style="background:var(--mint)"></span>
+      <span class="swatch" style="background:var(--yellow)"></span>
+      <span class="swatch" style="background:var(--peach)"></span>
+      <span class="swatch" style="background:var(--purple-light)"></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
