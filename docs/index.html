@@ -396,6 +396,7 @@
             <span id="selected-era" class="pill">Era</span>
           </div>
           <div class="actions">
+            <a class="btn" href="https://github.com/NovusGFX/retro-design-system" target="_blank" rel="noopener noreferrer">View GitHub repo</a>
             <a id="open-tab" class="btn primary" href="#" target="_blank" rel="noopener noreferrer">Open selected style demo</a>
           </div>
         </section>
@@ -471,6 +472,9 @@
         { id: "53", name: "Maximalist 90s Banner", era: "1998", vibe: "Rainbow marquee, 88x31 GIFs, hit counter, under construction", path: "../styles/53-maximalist-banners/index.html", isNew: true },
         { id: "54", name: "Corporate Memphis", era: "2018", vibe: "Purple/pink flat illustrations, floppy-limb people, rounded pills", path: "../styles/54-corporate-memphis/index.html", isNew: true }
       ];
+
+      const NEW_BADGE_COUNT = 8;
+      const newestIdThreshold = Math.max(...systems.map((system) => Number(system.id))) - (NEW_BADGE_COUNT - 1);
 
       const listEl = document.getElementById("system-list");
       const frameEl = document.getElementById("preview-frame");
@@ -784,7 +788,8 @@
         const btn = document.createElement("button");
         btn.className = "sys-btn";
         btn.type = "button";
-        const newChip = system.isNew ? '<span class="new-chip">NEW</span>' : "";
+        const isNewest = Number(system.id) >= newestIdThreshold;
+        const newChip = isNewest ? '<span class="new-chip">NEW</span>' : "";
         btn.innerHTML = `<span class="sys-name">${system.id}. ${system.name}</span><span class="sys-meta"><span class="sys-era">${system.era}</span>${newChip}</span>`;
         btn.addEventListener("click", () => selectSystem(system, btn));
         listEl.appendChild(btn);
