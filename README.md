@@ -1,8 +1,8 @@
 # Retro Design System
 
-> 54 standalone HTML/CSS UI themes spanning iconic computing and design eras. Built for AI-assisted frontend development, rapid prototyping, and nostalgic interface design.
+> 53 standalone HTML/CSS UI themes spanning iconic computing and design eras. Built for AI-assisted frontend development, rapid prototyping, and nostalgic interface design.
 
-54 retro UI design systems covering Windows 95, CRT terminals, DOS CGA, IBM mainframes, vaporwave, 8-bit arcade, Mac OS X Aqua, GeoCities, Commodore 64, Tron, VHS, Risograph, Bauhaus, and more. Each one drops into your own project or feeds directly to an AI coding agent.
+53 retro UI design systems covering Windows 95, CRT terminals, DOS CGA, IBM mainframes, vaporwave, 8-bit arcade, Mac OS X Aqua, GeoCities, Commodore 64, Tron, VHS, Risograph, Bauhaus, and more. Each one drops into your own project or feeds directly to an AI coding agent.
 
 ![Retro Design Systems social poster](./assets/social-poster.png)
 
@@ -110,7 +110,7 @@ Swap the reference path for any style in this repo. Popular picks:
 
 ## Included Systems
 
-54 standalone systems in `styles/`. Browse them all in the [interactive explorer](https://novusgfx.github.io/retro-design-system/docs/) or jump to source:
+53 standalone systems in `styles/`. Browse them all in the [interactive explorer](https://novusgfx.github.io/retro-design-system/docs/) or jump to source:
 
 1. [Mac System 7](https://github.com/NovusGFX/retro-design-system/blob/main/styles/01-mac-system-7/index.html)
 2. [Windows 95](https://github.com/NovusGFX/retro-design-system/blob/main/styles/02-windows-95/index.html)
@@ -165,19 +165,17 @@ Swap the reference path for any style in this repo. Popular picks:
 51. [Duotone Poster](https://github.com/NovusGFX/retro-design-system/blob/main/styles/51-duotone-poster/index.html)
 52. [Grid Paper](https://github.com/NovusGFX/retro-design-system/blob/main/styles/52-grid-paper/index.html)
 53. [Maximalist 90s Banner](https://github.com/NovusGFX/retro-design-system/blob/main/styles/53-maximalist-banners/index.html)
-54. [Corporate Memphis](https://github.com/NovusGFX/retro-design-system/blob/main/styles/54-corporate-memphis/index.html)
-
 ---
 
 ## Project Structure
 
 ```text
 styles/
-  01-mac-system-7/       index.html
-  02-windows-95/         index.html
-  03-windows-xp-luna/    index.html
+  01-mac-system-7/      index.html
+  02-windows-95/        index.html
+  03-windows-xp-luna/   index.html
   ...
-  54-corporate-memphis/  index.html
+  53-maximalist-banners/ index.html
 ```
 
 Each numbered folder contains one `index.html` with embedded CSS tokens and component examples. No build step, no dependencies.
