@@ -1,5 +1,9 @@
 # Retro Design System
 
+> 54 standalone HTML/CSS UI themes spanning iconic computing and design eras — built for AI-assisted frontend development, rapid prototyping, and nostalgic interface design.
+
+An open-source library of retro UI design systems covering Windows 95, CRT terminals, DOS CGA, IBM mainframes, vaporwave, 8-bit arcade, Mac OS X Aqua, GeoCities, Commodore 64, Tron, VHS, Risograph, Bauhaus, and more — each one ready to drop into your own project or feed directly to an AI coding agent.
+
 ![Retro Design Systems social poster](./assets/social-poster.png)
 
 [![GitHub stars](https://img.shields.io/github/stars/NovusGFX/retro-design-system?style=for-the-badge)](https://github.com/NovusGFX/retro-design-system/stargazers)
@@ -10,31 +14,22 @@
 
 ## Live Showcase
 
-- Interactive explorer: [https://novusgfx.github.io/retro-design-system/docs/](https://novusgfx.github.io/retro-design-system/docs/)
-- Source page: `docs/index.html`
+- **Interactive explorer**: [https://novusgfx.github.io/retro-design-system/docs/](https://novusgfx.github.io/retro-design-system/docs/)
+- Source: `docs/index.html`
 
-Retro Design System is an **AI-ready retro UI design system library** for developers, designers, prompt engineers, and creative coders who want nostalgic interfaces with modern implementation speed. It includes 54 standalone HTML/CSS design systems inspired by iconic eras like Windows 95, CRT terminals, DOS CGA, 8-bit arcade, Aqua, Tron, Risograph print, IBM 3270 mainframes, TempleOS, BBS ANSI art, the Matrix, glassmorphism, Bauhaus, Pop Art, Op Art, liminal spaces, brutalist HTML, and cassette futurism.
+---
 
-Each style pack is built to be easy for humans and AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools) to understand, remix, and ship. Point your agent to a style folder, generate components in that visual language, and keep consistent design tokens across prototypes and production-ready frontends.
+## Quick Start
 
-## About
+Open any folder's `index.html` directly in a browser, or run a local static server:
 
-An AI-agent-friendly collection of retro-inspired web UI systems with reusable tokens, component patterns, and visual references for rapid prototyping and production styling.
+```bash
+python -m http.server 8000
+```
 
-Retro Design System is a ready-to-use visual playground for building nostalgic interfaces fast. It distills iconic UI eras into practical, reusable design tokens and component patterns so you can prototype, ship, or theme products without rebuilding styles from scratch.
+Then visit `http://localhost:8000/`.
 
-Built for modern workflows, this library is especially useful when paired with AI coding agents (Claude, Codex, Gemini, Cursor, and similar tools): point an agent at a system, ask it to generate new UI in that visual language, and iterate quickly while keeping stylistic consistency.
-
-If you are building creative tools, game launchers, retro dashboards, experimental websites, synthwave projects, or throwback app skins, this repo gives you a strong design baseline plus copy-paste-ready references.
-
-## Use Cases
-
-- **AI-generated frontend themes**: Use Claude/Codex/Gemini to generate pages and components that match a specific retro style.
-- **Retro dashboard UI kits**: Build admin panels, launchers, and control rooms with vintage operating system aesthetics.
-- **Game website design inspiration**: Create game landing pages, overlays, and HUD-inspired interfaces using 8-bit/CRT motifs.
-- **Prompt-to-UI workflows**: Feed a style reference to an AI agent and get reusable HTML/CSS output faster.
-- **Creative coding and portfolio projects**: Add nostalgia-forward visual identity to experimental web projects.
-- **Design token extraction for theming**: Lift palettes, borders, shadows, and typography rules into your own component systems.
+---
 
 ## Screenshot Preview
 
@@ -58,7 +53,64 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 |---|---|
 | ![8-Bit Arcade UI](./assets/system-11-8bit-arcade.png) | ![Cassette Futurism UI](./assets/system-15-cassette-futurism.png) |
 
+---
+
+## Use Cases
+
+- **AI-generated frontend themes**: Use Claude, Codex, Gemini, or Cursor to generate pages and components that match a specific retro style.
+- **Retro dashboard UI kits**: Build admin panels, launchers, and control rooms with vintage OS aesthetics.
+- **Game website design**: Create game landing pages, overlays, and HUD-inspired interfaces using 8-bit and CRT motifs.
+- **Prompt-to-UI workflows**: Feed a style reference to an AI agent and get reusable HTML/CSS output faster.
+- **Creative coding and portfolios**: Add nostalgia-forward visual identity to experimental web projects.
+- **Design token extraction**: Lift palettes, borders, shadows, and typography rules into your own component systems.
+
+---
+
+## How To Use In Your Own Project
+
+1. Pick the system you want from the list below.
+2. Copy its token/style section into your project CSS.
+3. Reuse component markup patterns from the showcase to get the full look quickly.
+
+---
+
+## Using With AI Coding Agents (Claude, Codex, Gemini, Cursor, etc.)
+
+Point your agent at a style folder and ask it to generate UI in that visual language. Each system is intentionally self-contained — tokens, components, and patterns all in one file — so agents can read and reproduce the style without extra context.
+
+### Suggested workflow
+
+1. Point the agent to a specific system folder (e.g. `styles/11-8bit-arcade/index.html`).
+2. Ask it to extract tokens (colors, typography, spacing, shadows, borders) into reusable variables.
+3. Ask it to build your target component or page in that same visual language.
+4. Ask it to avoid modern defaults that break the retro look.
+
+### Prompt template
+
+```text
+Use `<your-project-path>/styles/11-8bit-arcade/index.html` as the style reference.
+Create [component/page] in this same visual language.
+
+Requirements:
+- Reuse the same color palette, type style, border treatment, and spacing rhythm
+- Match button/input/window styling patterns from the reference
+- Keep accessibility in mind (contrast, keyboard focus states, semantic HTML)
+- Output clean, production-ready HTML/CSS (or React + CSS)
+```
+
+Swap the reference path for any style in this repo. Popular picks:
+
+- `styles/09-crt-phosphor` — green phosphor terminal
+- `styles/10-dos-cga` — MS-DOS cyan/magenta palette
+- `styles/15-cassette-futurism` — 80s sci-fi control panels
+- `styles/16-vaporwave` — pastel synthwave aesthetic
+- `styles/27-ibm-3270` — IBM mainframe CICS terminal
+
+---
+
 ## Included Systems
+
+54 standalone systems in `styles/` — browse them all in the [interactive explorer](https://novusgfx.github.io/retro-design-system/docs/) or jump to source:
 
 1. [Mac System 7](https://github.com/NovusGFX/retro-design-system/blob/main/styles/01-mac-system-7/index.html)
 2. [Windows 95](https://github.com/NovusGFX/retro-design-system/blob/main/styles/02-windows-95/index.html)
@@ -115,111 +167,52 @@ If you are building creative tools, game launchers, retro dashboards, experiment
 53. [Maximalist 90s Banner](https://github.com/NovusGFX/retro-design-system/blob/main/styles/53-maximalist-banners/index.html)
 54. [Corporate Memphis](https://github.com/NovusGFX/retro-design-system/blob/main/styles/54-corporate-memphis/index.html)
 
-## Quick Start
-
-Open any folder's `index.html` directly in a browser, or run a local static server:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit `http://localhost:8000/`.
-
-## How To Use In Your Own Project
-
-- Pick the system you want.
-- Copy its token/style section into your project CSS.
-- Reuse component markup patterns from the showcase to get the full look quickly.
-
-## Using With AI Coding Agents (Claude, Codex, Gemini, etc.)
-
-Use any of the system folders as a visual/style reference and ask your agent to implement UI using that style's tokens and component patterns.
-
-### Suggested workflow
-
-1. Point the agent to a specific system folder (for example `styles/11-8bit-arcade/index.html`).
-2. Ask it to extract tokens (colors, typography, spacing, shadows, borders) into reusable variables.
-3. Ask it to build your target component/page in that same visual language.
-4. Ask it to avoid modern defaults that break the retro look.
-
-### Prompt template
-
-```text
-Use `<your-project-path>/styles/11-8bit-arcade/index.html` as the style reference.
-Create [component/page] in this same visual language.
-
-Requirements:
-- Reuse the same color palette, type style, border treatment, and spacing rhythm
-- Match button/input/window styling patterns from the reference
-- Keep accessibility in mind (contrast, keyboard focus states, semantic HTML)
-- Output clean, production-ready HTML/CSS (or React + CSS)
-```
-
-You can swap the reference path for any style in this repo:
-- Use your own local project directory path, not a fixed drive letter.
-- `styles/09-crt-phosphor`
-- `styles/10-dos-cga`
-- `styles/11-8bit-arcade`
-- `styles/15-cassette-futurism`
+---
 
 ## Project Structure
 
-Each numbered folder inside `styles/` contains one standalone system:
-
 ```text
 styles/
-  01-mac-system-7/
-  02-windows-95/
+  01-mac-system-7/       index.html
+  02-windows-95/         index.html
+  03-windows-xp-luna/    index.html
   ...
-  18-ps1-tech/
-  19-os2-warp/
-  20-macos9-platinum/
-  21-web20-glossy/
-  22-gameboy-dmg/
-  23-braun-rams/
-  24-tron-vector/
-  25-vhs-tracking/
-  26-risograph/
-  27-ibm-3270/
-  28-nethack-ascii/
-  29-templeos/
-  30-bbs-ansi/
-  31-midnight-commander/
-  32-matrix-rain/
-  33-btop-meters/
-  34-c64-basic/
-  35-flat-2013/
-  36-glassmorphism/
-  37-neumorphism/
-  38-blueprint-cad/
-  39-claymorphism/
-  40-brutalist-web/
-  41-swiss-intl/
-  42-bauhaus/
-  43-pop-art-lichtenstein/
-  44-op-art/
-  45-hypnagogic/
-  46-monochrome-zen/
-  47-default-browser/
-  48-wireframe-sketch/
-  49-glitch-databend/
-  50-y2k-chrome/
-  51-duotone-poster/
-  52-grid-paper/
-  53-maximalist-banners/
-  54-corporate-memphis/
+  54-corporate-memphis/  index.html
 ```
+
+Each numbered folder is fully self-contained — one `index.html` with embedded CSS tokens and component examples. No build step, no dependencies.
+
+---
 
 ## FAQ
 
-### Can I use this with Claude, Codex, Gemini, Cursor, or other coding assistants?
-Yes. Point your assistant to one of the style folders, then ask for a component or page that matches that visual language.
+**Can I use this with Claude, Codex, Gemini, Cursor, or other coding assistants?**
+Yes. Point your assistant to one of the style folders and ask it to generate a component or page in that visual language. The single-file format is intentionally agent-friendly.
 
-### Is this good for production projects?
-Yes, with refinement for your product needs. The systems are intentionally expressive and can be adapted for accessibility, responsiveness, and brand constraints.
+**Does this work with Tailwind, React, Next.js, or other frameworks?**
+The base assets are plain HTML and CSS. You can port tokens and patterns into any stack — Tailwind, React, Next.js, Vue, Svelte, Astro — by copying the CSS variables and adapting the markup.
 
-### What tech stack does this support?
-The base assets are plain HTML and CSS, so you can use them in static sites and in frameworks like React, Next.js, Vue, Svelte, and Astro.
+**Is this production-ready?**
+The systems are intentionally expressive references. Use them as a starting point and adapt for accessibility, responsiveness, and your brand constraints.
+
+**Can I add my own retro style?**
+Yes — see Contributing below. A new system is just one numbered folder with a single `index.html`. If it covers an era or aesthetic not already included, open a PR.
+
+**What license is this under?**
+MIT. Use it freely in personal and commercial projects.
+
+---
+
+## Contributing
+
+New styles, bug fixes, and improvements are welcome.
+
+1. Fork the repo and create a branch.
+2. Add your system as `styles/NN-your-style-name/index.html` following the existing numbering and single-file format.
+3. Include all tokens and at least one component example inline.
+4. Open a PR with a screenshot and a one-line description of the era or aesthetic.
+
+---
 
 ## Credits
 
@@ -227,4 +220,4 @@ Created by **NovusGFX**.
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE`.
+MIT License. See `LICENSE`.
