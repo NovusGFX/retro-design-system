@@ -1,8 +1,8 @@
 # Retro Design System
 
-> 54 standalone HTML/CSS UI themes spanning iconic computing and design eras — built for AI-assisted frontend development, rapid prototyping, and nostalgic interface design.
+> 54 standalone HTML/CSS UI themes spanning iconic computing and design eras. Built for AI-assisted frontend development, rapid prototyping, and nostalgic interface design.
 
-An open-source library of retro UI design systems covering Windows 95, CRT terminals, DOS CGA, IBM mainframes, vaporwave, 8-bit arcade, Mac OS X Aqua, GeoCities, Commodore 64, Tron, VHS, Risograph, Bauhaus, and more — each one ready to drop into your own project or feed directly to an AI coding agent.
+54 retro UI design systems covering Windows 95, CRT terminals, DOS CGA, IBM mainframes, vaporwave, 8-bit arcade, Mac OS X Aqua, GeoCities, Commodore 64, Tron, VHS, Risograph, Bauhaus, and more. Each one drops into your own project or feeds directly to an AI coding agent.
 
 ![Retro Design Systems social poster](./assets/social-poster.png)
 
@@ -61,7 +61,7 @@ Then visit `http://localhost:8000/`.
 - **Retro dashboard UI kits**: Build admin panels, launchers, and control rooms with vintage OS aesthetics.
 - **Game website design**: Create game landing pages, overlays, and HUD-inspired interfaces using 8-bit and CRT motifs.
 - **Prompt-to-UI workflows**: Feed a style reference to an AI agent and get reusable HTML/CSS output faster.
-- **Creative coding and portfolios**: Add nostalgia-forward visual identity to experimental web projects.
+- **Creative coding and portfolios**: Give experimental web projects a nostalgic visual identity.
 - **Design token extraction**: Lift palettes, borders, shadows, and typography rules into your own component systems.
 
 ---
@@ -76,7 +76,7 @@ Then visit `http://localhost:8000/`.
 
 ## Using With AI Coding Agents (Claude, Codex, Gemini, Cursor, etc.)
 
-Point your agent at a style folder and ask it to generate UI in that visual language. Each system is intentionally self-contained — tokens, components, and patterns all in one file — so agents can read and reproduce the style without extra context.
+Point your agent at a style folder and ask it to generate UI in that visual language. Each system is one self-contained file: tokens, components, and patterns together. Agents can read and reproduce the style without extra context.
 
 ### Suggested workflow
 
@@ -100,17 +100,17 @@ Requirements:
 
 Swap the reference path for any style in this repo. Popular picks:
 
-- `styles/09-crt-phosphor` — green phosphor terminal
-- `styles/10-dos-cga` — MS-DOS cyan/magenta palette
-- `styles/15-cassette-futurism` — 80s sci-fi control panels
-- `styles/16-vaporwave` — pastel synthwave aesthetic
-- `styles/27-ibm-3270` — IBM mainframe CICS terminal
+- `styles/09-crt-phosphor` (green phosphor terminal)
+- `styles/10-dos-cga` (MS-DOS cyan/magenta palette)
+- `styles/15-cassette-futurism` (80s sci-fi control panels)
+- `styles/16-vaporwave` (pastel synthwave aesthetic)
+- `styles/27-ibm-3270` (IBM mainframe CICS terminal)
 
 ---
 
 ## Included Systems
 
-54 standalone systems in `styles/` — browse them all in the [interactive explorer](https://novusgfx.github.io/retro-design-system/docs/) or jump to source:
+54 standalone systems in `styles/`. Browse them all in the [interactive explorer](https://novusgfx.github.io/retro-design-system/docs/) or jump to source:
 
 1. [Mac System 7](https://github.com/NovusGFX/retro-design-system/blob/main/styles/01-mac-system-7/index.html)
 2. [Windows 95](https://github.com/NovusGFX/retro-design-system/blob/main/styles/02-windows-95/index.html)
@@ -180,23 +180,23 @@ styles/
   54-corporate-memphis/  index.html
 ```
 
-Each numbered folder is fully self-contained — one `index.html` with embedded CSS tokens and component examples. No build step, no dependencies.
+Each numbered folder contains one `index.html` with embedded CSS tokens and component examples. No build step, no dependencies.
 
 ---
 
 ## FAQ
 
 **Can I use this with Claude, Codex, Gemini, Cursor, or other coding assistants?**
-Yes. Point your assistant to one of the style folders and ask it to generate a component or page in that visual language. The single-file format is intentionally agent-friendly.
+Yes. Point your assistant to one of the style folders and ask it to generate a component or page in that visual language. The single-file format is agent-friendly by design.
 
 **Does this work with Tailwind, React, Next.js, or other frameworks?**
-The base assets are plain HTML and CSS. You can port tokens and patterns into any stack — Tailwind, React, Next.js, Vue, Svelte, Astro — by copying the CSS variables and adapting the markup.
+The base assets are plain HTML and CSS. Port tokens and patterns into any stack (Tailwind, React, Next.js, Vue, Svelte, Astro) by copying the CSS variables and adapting the markup.
 
 **Is this production-ready?**
-The systems are intentionally expressive references. Use them as a starting point and adapt for accessibility, responsiveness, and your brand constraints.
+These are expressive style references. Use them as a starting point and adapt for accessibility, responsiveness, and your brand.
 
 **Can I add my own retro style?**
-Yes — see Contributing below. A new system is just one numbered folder with a single `index.html`. If it covers an era or aesthetic not already included, open a PR.
+Yes. See Contributing below. A new system is one numbered folder with a single `index.html`. If it covers an era or aesthetic not already included, open a PR.
 
 **What license is this under?**
 MIT. Use it freely in personal and commercial projects.
