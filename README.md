@@ -69,8 +69,24 @@ Then visit `http://localhost:8000/`.
 ## How To Use In Your Own Project
 
 1. Pick the system you want from the list below.
-2. Copy its token/style section into your project CSS.
+2. Import its tokens from `tokens/<slug>.css`, or copy the token/style section from `styles/<slug>/index.html`.
 3. Reuse component markup patterns from the showcase to get the full look quickly.
+
+---
+
+## Programmatic Access
+
+Two generated files make the collection scriptable and agent-friendly:
+
+- **`manifest.json`**: every system with `id`, `slug`, `name`, `era`, `year`, `tags`, `path`, and extracted `palette`. Use it to build pickers, filters, or feed metadata to an agent.
+- **`tokens/<slug>.css`**: the `:root` design tokens for each system, extracted so you can import the palette and typography without parsing the demo HTML.
+
+Both are regenerated from the source styles, so they never drift:
+
+```bash
+node scripts/build-manifest.mjs   # rewrites manifest.json
+node scripts/build-tokens.mjs     # rewrites tokens/*.css
+```
 
 ---
 
