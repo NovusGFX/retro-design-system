@@ -1,0 +1,7 @@
+# Local-only working files not published to GitHub
+# (canned redesigns, unaccepted styles, video pipeline)
+_local-only/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
