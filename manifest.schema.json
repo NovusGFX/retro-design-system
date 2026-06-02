@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Retro Design System manifest",
+  "type": "object",
+  "required": ["count", "systems"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "generated": { "type": "string", "description": "YYYY-MM-DD build date" },
+    "count": { "type": "integer" },
+    "systems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "slug", "name", "path", "palette"],
+        "properties": {
+          "id": { "type": "integer" },
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "era": { "type": "string" },
+          "year": { "type": ["integer", "null"] },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "path": { "type": "string" },
+          "palette": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^#[0-9a-f]{6}$" }
+          }
+        }
+      }
+    }
+  }
+}
