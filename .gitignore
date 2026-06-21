@@ -2,6 +2,9 @@
 # (canned redesigns, unaccepted styles, video pipeline)
 _local-only/
 
+# Claude Code per-developer permissions (machine-local, not for sharing)
+.claude/settings.local.json
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
