@@ -94,6 +94,18 @@ node scripts/build-tokens.mjs     # rewrites tokens/*.css
 
 Point your agent at a style folder and ask it to generate UI in that visual language. Each system is one self-contained file: tokens, components, and patterns together. Agents can read and reproduce the style without extra context.
 
+### Claude Code users
+
+This repo ships a project-level Claude Code skill at `.claude/skills/retro-design/`. Open this repo in Claude Code and the `/retro-design` command becomes available:
+
+```
+/retro-design list                # browse all 53 styles
+/retro-design 80s green terminal  # get 3 recommendations
+/retro-design 09-crt-phosphor     # load a specific style reference
+```
+
+The skill filters the catalog by vibe, loads the chosen style's tokens and component patterns, and generates new HTML/CSS in that visual language. See `.claude/skills/retro-design/SKILL.md` for the full workflow.
+
 ### Suggested workflow
 
 1. Point the agent to a specific system folder (e.g. `styles/11-8bit-arcade/index.html`).
